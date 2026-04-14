@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+      <ul>
+      <% products.forEach(product => { %>
+        <li><%= product.name %> <%= product.price %></li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

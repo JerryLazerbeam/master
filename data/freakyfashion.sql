@@ -9,3 +9,17 @@ INSERT INTO products (name, price)
 VALUES
 ('Svart T-Shirt', 199),
 ('Vit T-Shirt', 199);
+
+
+
+CREATE TABLE categories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+INSERT INTO categories (name)
+VALUES
+('Nyheter'),
+('Bästsäljare'),
+('Kvinnor'),
+('Herr');

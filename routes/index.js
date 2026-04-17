@@ -6,16 +6,19 @@ const db = require('../data/db');
 
 // GET /
 router.get('/', function(req, res, next) {
+  try {
+    const select = db.prepare('SELECT * FROM products');
+    const products = select.all();
 
-  const select = db.prepare('SELECT * FROM products');
+    res.render('index', {
+      title: 'FreakyFashion',
+      products
+    });
 
-  const products = select.all();
-
-  res.render('index', {
-    title: 'FreakyFashion',
-    products
-  });
+  } catch (error) {
+    console.log(error);
+    res.send("ERROR KOLLA TERMINAL");
+  }
 });
-
 
 module.exports = router;

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <%- include('partials/layout/header') %>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include('partials/layout/header') %>
     <%- include('partials/components/hero') %>
-     <%- include('partials/components/product-card') %>
-     <%- include('partials/layout/footer') %>
-  </body>
+      <%- include('partials/components/product-card') %>
+
+
+
+        <%- include('partials/components/small-icon') %>
+          <%- include('partials/components/footer') %>
+</body>
+
 </html>

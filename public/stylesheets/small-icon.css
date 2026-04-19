@@ -45,8 +45,28 @@ a {
 text-decoration: none;
 color: inherit;
 }
-footer {
+.small-icons {
 display: grid;
+gap: 1rem;
+}
+.small-icons img {
+width: 34px;
+height: 34px;
+}
+@media (min-width: 640px) {
+.small-icons {
+grid-template-columns: 1fr 1fr;
 justify-items: center;
-padding: 20px;
+}
+
+.small-icons > div {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+}
+@media (min-width: 1024px) {
+.small-icons {
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 }

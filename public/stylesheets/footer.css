@@ -64,21 +64,10 @@ footer {
     display: grid;
     justify-items: center;
     padding: 20px;
+   
 }
-
-.footer-continainer {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 20px 10px 0 10px;
-    justify-content: start;
-
-}
-
-.footer-continainer > div {
-    display: flex;
-    gap: 80px;
-}
-
-.footer-continainer {
-    background-color: rgb(221, 218, 218);
+@media (min-width: 640px) {
+    footer {
+      background-color: rgb(221, 218, 218);
+    }
 }

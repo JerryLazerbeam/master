@@ -1,0 +1,30 @@
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 20px 10px 0 10px;
+    justify-content: start;
+    background-color: rgb(221, 218, 218);
+
+}
+
+.footer-container h4 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+a {
+    display: block;
+    font-size: 14px;
+    font-weight: 500; 
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 640px) {
+    .footer-container {
+        display: none;
+    }
+
+
+}

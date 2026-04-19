@@ -48,6 +48,7 @@ color: inherit;
 .small-icons {
 display: grid;
 gap: 1rem;
+margin: 2.5rem 0rem 1.5rem 1rem;
 }
 .small-icons img {
 width: 34px;

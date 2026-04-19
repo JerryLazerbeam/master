@@ -45,3 +45,8 @@ a {
 text-decoration: none;
 color: inherit;
 }
+footer {
+display: grid;
+justify-items: center;
+padding: 20px;
+}

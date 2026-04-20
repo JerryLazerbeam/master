@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/login.css">
     <title>Logg in</title>
 </head>
+
 <body>
     <%- include('partials/layout/header') %>
-        <h4>Logga in</h4>
+        <h3>Logga in</h3>
 
+        <form class="register">
+            <label for="email" class="email">E-post</label>
+            <input type="email" name="email" required>
+
+            <label for="password" class="password">Lösenord</label>
+            <input type="password"  name="password" required>
+        </form>
+        <div class="register-btn"><button type="submit">Logga in</button></div>
+        
 
 
         <%- include('partials/layout/small-icon') %>
@@ -17,4 +28,3 @@
                 <%- include('partials/layout/accordion') %>
                     <%- include('partials/layout/footer') %>
 </body>
-</html>

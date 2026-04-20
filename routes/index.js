@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     const select = db.prepare('SELECT * FROM products');
     const products = select.all();
 
-    res.render('index', {
+    res.render('index',{
       title: 'FreakyFashion',
       products
     });
@@ -20,5 +20,16 @@ router.get('/', function(req, res, next) {
     res.send("ERROR KOLLA TERMINAL");
   }
 });
+router.get('/favorites', (req, res,) => {
+  res.render('favorites');
+});
+router.get('/login', (req, res,) => {
+  res.render('login');
+});
+
+
+
+
+
 
 module.exports = router;

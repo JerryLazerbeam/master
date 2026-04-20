@@ -45,6 +45,11 @@ a {
 text-decoration: none;
 color: inherit;
 }
+.small-icons > div {
+display: flex;
+gap: 1rem;
+}
+
 .small-icons {
 display: grid;
 gap: 1rem;

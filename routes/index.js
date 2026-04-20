@@ -26,12 +26,6 @@ router.get('/favorites', (req, res,) => {
 router.get('/login', (req, res,) => {
   res.render('login');
 });
-
-
-
-
-
-
 router.get('/basket', (req, res) => {
   res.render('basket');
 });

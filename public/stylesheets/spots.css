@@ -1,0 +1,75 @@
+.spots-container {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  .hero-container img {
+    width: 50%;
+    height: 400px;
+  }
+  .spots-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 3rem;
+  }
+  .spots-container > div {
+    display: flex;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.1);
+    margin: 0.5rem;
+  }
+  .spots-container img {
+    display: flex;
+    width: 300px;
+    height: auto;
+  }
+  .spot1 {
+    position: relative;
+  }
+  .spot-nyhet {
+    position: absolute;
+    border-radius: 8px;
+    background-color: rgba(195, 79, 79, 0.527);
+    color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.5rem;
+  }
+
+  .spot2 {
+    position: relative;
+  }
+
+  .spot-bästsäljare {
+    position: absolute;
+    border-radius: 8px;
+    background-color: rgba(195, 79, 79, 0.527);
+    color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.5rem;
+  }
+
+  .spot3 {
+    position: relative;
+  }
+
+  .kolla-priset {
+    position: absolute;
+    border-radius: 8px;
+    background-color: rgba(195, 79, 79, 0.527);
+    color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.5rem;
+  }
+}

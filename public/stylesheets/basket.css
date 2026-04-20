@@ -1,0 +1,142 @@
+/* ===== CSS RESET ===== */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+/* Remove default margin */
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+margin: 0;
+}
+
+/* Remove list styles */
+ul, ol {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+/* Set core body defaults */
+body {
+min-height: 100vh;
+line-height: 1.5;
+font-family: 'Inter', sans-serif;
+overflow-x: hidden;
+background-color: white;
+color: black;
+}
+
+/* Make images easier to work with */
+img, picture {
+max-width: 100%;
+display: block;
+}
+
+/* Remove default button styles */
+button, input, textarea, select {
+font: inherit;
+}
+
+/* Remove link underline by default */
+a {
+text-decoration: none;
+color: inherit;
+}
+
+/*---Checkout---*/
+.container-table {
+  display: none;
+}
+.kassan {
+  text-align: center;
+  margin: 1rem;
+}
+
+.container-svartvit {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+.container-kassa1 {
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0px 50px 5px rgba(0,0,0,0.1);
+  border-radius: 10px 10px 0 0;
+  height: 5rem;
+}
+
+.svart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.sek {
+  padding-left: 0.5rem;
+}
+.container-kassa2 {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 10px 50px 5px rgba(0,0,0,0.1);
+  border-radius: 0 0 10px 10px;
+  height: 5rem;
+}
+
+.vit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.köpknapp {
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+}
+
+#köp {
+  width: 15rem;
+  height: 3rem;
+  
+  border-radius: 10px;
+}
+
+
+@media (min-width: 640px) {
+
+
+ .container-svartvit {
+    display: none;
+  }
+
+  .container-table {
+    display: flex;
+    margin: 0.5rem;
+  }
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    text-align: left;
+    box-shadow: 0px 1px 40px 5px rgba(0,0,0,0.1);
+    color: black;
+  }
+}

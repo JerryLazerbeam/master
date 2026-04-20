@@ -1,7 +1,6 @@
 .footer-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
     padding: 20px 10px 0 10px;
     justify-content: start;
     background-color: rgb(221, 218, 218);

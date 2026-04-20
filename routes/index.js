@@ -21,4 +21,8 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.get('/basket', (req, res) => {
+  res.render('basket');
+});
+
 module.exports = router;

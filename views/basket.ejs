@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/basket.css">
+    <link rel="stylesheet" href="/stylesheets/accordion.css">
+    <link rel="stylesheet" href="/stylesheets/footer-navbar.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <title>Kassan</title>
+</head>
+<body>
+    <%- include('partials/layout/header') %>
+    <main>
+        <section id="kassa-mobil"><h2 class="kassan">Kassan</h2>
+            <div class="container-svartvit">
+                <div class="container-kassa1">
+                    <div class="svart">
+                        <div><p>1 x Svart Tshirt</p></div>
+                        <div><p>199 SEK</p></div>
+                    </div>
+                    <div class="sek"><p>199 SEK</p></div>
+                </div>
+                
+                <div class="container-kassa2">
+                    <div class="vit">
+                        <div><p>2 x Vit Tshirt</p></div>
+                        <div><p>398 SEK</p></div>
+                    </div>
+                    <div class="sek"><p>199 SEK</p></div>
+                </div>
+            </div>    
+        </section>
+        <section class="kassa-laptop">   
+            <div class="container-table">
+                <table>
+                    <tr class="rad-1">
+                        <th>Produkt</th>
+                        <th>Antal</th>
+                        <th>Pris</th>
+                        <th>Totalt</th>
+                    </tr>
+                    <tr class="rad-2">
+                        <td>Svart T-shirt</td>
+                        <td>1</td>
+                        <td>199 kr</td>
+                        <td>199 kr</td>
+                    </tr>
+                    <tr class="rad-3">
+                        <td>Vit T-shirt</td>
+                        <td>2</td>
+                        <td>199 kr</td>
+                        <td>398 kr</td>
+                    </tr>
+                </table>
+            </div>
+        </section> 
+            <div class="köpknapp"><button id="köp">Köp</button></div>
+
+        </section>
+    </main>
+       
+        <%- include('partials/layout/small-icon') %>
+          <%- include('partials/layout/footer-navbar') %>
+            <%- include('partials/layout/accordion') %>
+              <%- include('partials/layout/footer') %>
+</body>
+</html>

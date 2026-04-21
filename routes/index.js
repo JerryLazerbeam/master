@@ -29,5 +29,13 @@ router.get('/login', (req, res,) => {
 router.get('/basket', (req, res) => {
   res.render('basket');
 });
-
+router.get('/klader', (req, res) => {
+  res.render('klader');
+});
+router.get('/selected-favorites', (req, res) => {
+  res.render('selected-favorites');
+});
+router.get('/nyheter', (req, res) => {
+  res.render('nyheter');
+});
 module.exports = router;

@@ -29,6 +29,10 @@ router.get('/login', (req, res,) => {
 router.get('/basket', (req, res) => {
   res.render('basket');
 });
+router.get('/products', (req, res) => {
+  res.render('products');
+});
+
 router.get('/klader', (req, res) => {
   res.render('klader');
 });

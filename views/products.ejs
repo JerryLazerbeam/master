@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/products.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <title>Product</title>
+</head>
+<body>
+    <%- include('partials/layout/header') %>
+    <div class="container-product-details">
+            <div class="product-img">
+                <a href="#">
+                    <img class="tshirt-bild" src="images/pngegg.png" alt="t-shirt">
+                </a>
+                <span class="icon-right"><img src="/images/icons/suit-heart-fill.svg" alt="heart-fill"></span>
+            </div>
+                <div class="container-infovarukorg">
+                    <div class="produktdetaljer">
+                        <p class="svart-tshirt">Svart T-shirt</p>
+                        <p class="levis">Levis</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem modi consectetur excepturi perspiciatis recusandae sit. Rerum unde eum, maiores recusandae, ipsum, veritatis eveniet ipsam fugiat aut aliquid soluta architecto maxime?</p>
+                        <p class="priset">199 SEK</p>
+                    </div>
+                   
+                    <div class="btnvarukorg">
+                        <a href="/basket"><button>Lägg i varukorg</button></a>
+                    </div>
+                </div>
+    </div>
+    <div><h2 class="liknande">Liknande produkter</h2></div>
+    <div class="slider-wrapper swiper">
+  
+            <div class="swiper-wrapper">
+            
+                <div class="card-item swiper-slide">
+                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
+                    <h2>Svart T-shirt</h2>
+                    <p>Levis</p>
+                </div>
+
+                <div class="card-item swiper-slide">
+                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
+                    <h2>Svart T-shirt</h2>
+                    <p>Levis</p>
+                </div>
+
+                <div class="card-item swiper-slide">
+                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
+                    <h2>Svart T-shirt</h2>
+                    <p>Levis</p>
+                </div>
+
+                <div class="card-item swiper-slide">
+                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
+                    <h2>Svart T-shirt</h2>
+                    <p>Levis</p>
+                </div>
+
+                <div class="card-item swiper-slide">
+                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
+                    <h2>Svart T-shirt</h2>
+                    <p>Levis</p>
+                </div>
+
+                <div class="card-item swiper-slide">
+                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
+                    <h2>Svart T-shirt</h2>
+                    <p>Levis</p>
+                </div>   
+            </div>
+        
+
+            <!-- UTANFÖR wrappern -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+    </div>
+    
+        <%- include('partials/layout/small-icon') %>
+          <%- include('partials/layout/footer-navbar') %>
+            <%- include('partials/layout/accordion') %>
+              <%- include('partials/layout/footer') %>
+    <script>
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+    const button = dropdown.querySelector(".dropbtn");
+
+    button.addEventListener("click", () => {
+      dropdown.classList.toggle("active");
+    });
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/javascripts/products.js"></script>
+</body>
+</html>

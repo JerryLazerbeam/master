@@ -20,6 +20,6 @@ CREATE TABLE categories (
 INSERT INTO categories (name)
 VALUES
 ('Nyheter'),
-('Bästsäljare'),
-('Kvinnor'),
-('Herr');
+('Kläder'),
+('Accessoarer'),
+('Skor'),

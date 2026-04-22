@@ -18,7 +18,7 @@ figure,
 blockquote,
 dl,
 dd {
-    margin: 0;
+     margin: 0; 
 }
 
 /* Remove list styles */
@@ -60,6 +60,13 @@ a {
     color: inherit;
 }
 
+
+/* Styr rubrik på varje sida, så att den är centrerad och har lite padding */ 
+h3 {
+    text-align: center;
+    padding: 1rem;
+} 
+ /* bara footer.css */
 footer {
     display: grid;
     justify-items: center;
@@ -70,4 +77,82 @@ footer {
     footer {
       background-color: rgb(221, 218, 218);
     }
+
+}
+/* Stry accordion och footer-navbar så att de inte visas på desktop, och visa dem på mobil */
+@media (min-width: 640px) {
+  .accordion {
+    display: none;
+  }
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px 10px 0 10px;  
+    justify-content: start; 
+    background-color: rgb(221, 218, 218); 
+   
+
+}
+
+.footer-container h4 {
+    font-weight: 500;
+    margin-bottom: 10px;    
+    
+}
+
+a {
+    display: block;
+    font-size: 14px;
+    font-weight: 500; 
+    margin-bottom: 10px; 
+    
+    
+}
+
+
+@media (max-width: 640px) {
+    .footer-container {
+        display: none;
+    }
+}
+/* Styr allt som har med small-icons att göra, på alla sidor */
+.small-icons > div {
+display: flex;
+gap: 1rem;
+align-items: center;
+
+
+}
+
+.small-icons {
+display: grid;
+gap: 1rem;
+margin: 2.5rem 0rem 1.5rem 1rem;
+
+}
+.small-icons img {
+width: 34px;
+height: 34px;
+
+}
+@media (min-width: 640px) {
+.small-icons {
+grid-template-columns: 1fr 1fr;
+padding: 0 3rem 0 3rem;
+justify-items: auto;
+}
+
+.small-icons > div {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
+}
+@media (min-width: 1024px) {
+.small-icons {
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 }

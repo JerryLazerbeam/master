@@ -1,6 +1,0 @@
--- database: ./freakyfashion.db
-
-SELECT * FROM categories;
-ALTER TABLE categories ADD COLUMN link TEXT;
-UPDATE categories SET link = '/nyheter' WHERE name = 'Nyheter';
-UPDATE categories SET link = '/klader' WHERE name = 'Kläder';

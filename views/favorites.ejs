@@ -4,61 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/favorites.css">
+      <link rel="stylesheet" href="/stylesheets/product-card.css"> 
+      <link rel="stylesheet" href="/stylesheets/favorites.css"> 
     <title>Favorites</title>
 </head>
 
 <body>
     <%- include('partials/layout/header') %>
-        <h4>Mina Favoriter</h4>
+        <main>
 
-        <div class="product-cards">
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <a href="#">
-                        <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                        <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" alt="heart-fill" /></span>
-                    </a>
+            <h3>Mina Favoriter</h3>
+
+            <div class="product-cards">
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <a href="#">
+                            <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
+                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
+                                    alt="heart-fill" /></span>
+                        </a>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-name">Svart T-shirt</span>
+                        <span class="price">199 SEK</span>
+                        <span class="brand">Levis</span>
+                    </div>
                 </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <a href="#">
+                            <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
+                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
+                                    alt="heart-fill" /></span>
+                        </a>
 
-                <div class="product-info">
-                    <span class="product-name">Svart T-shirt</span>
-                    <span class="price">199 SEK</span>
-                    <span class="brand">Levis</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-name">Svart T-shirt</span>
+                        <span class="price">199 SEK</span>
+                        <span class="brand">Levis</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <a href="#">
+                            <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
+                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
+                                    alt="heart-fill" /></span>
+                        </a>
+
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-name">Svart T-shirt</span>
+                        <span class="price">199 SEK</span>
+                        <span class="brand">Levis</span>
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <a href="#">
-                        <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                        <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" alt="heart-fill" /></span>
-                    </a>
+        </main>
 
-                </div>
 
-                <div class="product-info">
-                    <span class="product-name">Svart T-shirt</span>
-                    <span class="price">199 SEK</span>
-                    <span class="brand">Levis</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <a href="#">
-                        <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                        <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" alt="heart-fill" /></span>
-                    </a>
-
-                </div>
-
-                <div class="product-info">
-                    <span class="product-name">Svart T-shirt</span>
-                    <span class="price">199 SEK</span>
-                    <span class="brand">Levis</span>
-                </div>
-            </div>
-        </div>
-        </div>
 
 
         <%- include('partials/layout/small-icon') %>

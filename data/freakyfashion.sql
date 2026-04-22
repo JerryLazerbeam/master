@@ -23,3 +23,10 @@ VALUES
 ('Kläder'),
 ('Accessoarer'),
 ('Skor'),
+
+--Add a link column to the categories table and update it with appropriate links
+SELECT * FROM categories;
+ALTER TABLE categories ADD COLUMN link TEXT;
+UPDATE categories SET link = '/nyheter' WHERE name = 'Nyheter';
+UPDATE categories SET link = '/klader' WHERE name = 'Kläder';
+);

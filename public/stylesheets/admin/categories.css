@@ -45,3 +45,85 @@ a {
 text-decoration: none;
 color: inherit;
 }
+.btn {
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+    border-radius: 10px;
+    width: 8rem;
+    height: 2.5rem;
+    border: 2px solid black;
+    box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
+}
+.administration-header h1 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: 1rem 1rem 1rem 0rem;
+}
+.administration-header {
+  background:rgb(0, 0, 0);
+  padding: 0.1rem 2rem;
+}
+.main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.main-row h2 {
+  margin: 0;
+  padding-left: 1rem;
+}
+.new-product {
+  display: block;
+  padding: 1rem;
+}
+.admin-prod {
+  display: flex;
+  align-items: stretch;
+}
+.sidebar {
+  background-color:  #d2d2d2;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  width: 200px;
+  min-height: 100vh;
+  border-right: 0.1rem solid #000000;
+}
+
+.sidebar h3 {
+  padding-bottom: 1rem;
+}
+
+.sidebar a:first-child h3{
+  font-weight: 400;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+}
+.product-row {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-prod td:last-child {
+  gap: 0.5rem;
+  text-align: center;
+}
+.admin-prod td svg {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #d2d2d2;
+}
+
+.admin-prod td a {
+  text-decoration: none;
+  color: inherit;
+}
+.admin-prod th {
+  text-align: left;
+  padding-left: 0.5rem;
+}

@@ -46,7 +46,16 @@ text-decoration: none;
 color: inherit;
 }
 
-.btn {
+.new-content {
+  width: 350px;
+  padding: 1rem;
+}
+.main-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.btn2 {
     display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -56,9 +65,43 @@ color: inherit;
     border: 2px solid black;
     box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
 }
+.btn2:hover {
+  background-color: #d2d2d2;
+}
+.main-column input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+.main-column button {
+  margin-top: 1rem;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  margin-bottom: 5rem;
+}
+.main-column textarea {
+  font-family: inherit;
+  padding: 0.5rem;
+  min-height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  resize: vertical;
+}
+.main-column label {
+  cursor: pointer;
+}
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.main-column h4, h2 {
+  margin: 0;
+}
 .administration-header h1 {
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 1.5rem; 
   margin: 1rem 1rem 1rem 0rem;
 }
 .administration-header {
@@ -90,41 +133,25 @@ color: inherit;
   min-height: 100vh;
   border-right: 0.1rem solid #000000;
 }
-
 .sidebar h3 {
   padding-bottom: 1rem;
 }
-
-.sidebar a:last-child h3{
+.sidebar a:first-child h3{
   font-weight: 400;
 }
-
 .main-content {
   flex: 1;
   padding: 1rem;
 }
-.product-row {
-  width: 100%;
-  border-collapse: collapse;
+button.btn2 {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  border: 2px solid black;
 }
-.admin-prod td:last-child {
-  gap: 0.5rem;
-  text-align: center;
-}
-.admin-prod td svg {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-.btn:hover {
-  background-color: #d2d2d2;
-}
-
-.admin-prod td a {
-  text-decoration: none;
-  color: inherit;
-}
-.admin-prod th {
-  text-align: left;
-  padding-left: 0.5rem;
+@media (min-width: 640px) {
+  .shopping {
+    display: none;
+  }
 }

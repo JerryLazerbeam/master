@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freaky Fashion</title>
+
+    <link rel="stylesheet" href="/stylesheets/admin/categories-new.css" />
+</head>
+
+<body>
+    <header class="administration-header">
+        <h1>Administration</h1>
+    </header>
+
+    <main>
+        <div class="admin-prod">
+
+            <div class="sidebar">
+                         <a href="/admin/products"><h3>Produkter</h3></a>
+          <a href="/admin/categories"><h3>Kategorier</h3></a>
+            </div>
+            <div class="new-content">
+
+                <div class="main-column">
+                    <h2>Ny produkt</h2>
+
+                    <label for="Namn">Namn</label>
+                    <input type="text" id="Namn" name="Namn" placeholder="Ange namn" maxlength="25" required>
+
+                    <label for="bild">Bild</label>
+                    <label for="bild" class="btn2">Välj fil</label>
+                    <input type="file" id="bild" name="bild" accept="image/png, image/jpeg" hidden required>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

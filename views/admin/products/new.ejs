@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freaky Fashion</title>
+
+    <link rel="stylesheet" href="/stylesheets/admin/products-new.css" />
+</head>
+
+<body>
+    <header class="administration-header">
+        <h1>Administration</h1>
+    </header>
+
+    <main>
+        <div class="admin-prod">
+
+            <div class="sidebar">
+                         <a href="/admin/products"><h3>Produkter</h3></a>
+          <a href="/admin/categories"><h3>Kategorier</h3></a>
+            </div>
+            <div class="new-content">
+
+                <div class="main-column">
+                    <h2>Ny produkt</h2>
+
+
+
+
+                    <label for="Namn">Namn</label>
+                    <input type="text" id="Namn" name="Namn" placeholder="Ange namn" maxlength="50" required>
+
+
+
+                    <label for="beskrivning">Beskrivning</label>
+                    <textarea id="beskrivning" name="beskrivning" placeholder="Ange beskrivning" required></textarea>
+
+                    <label for="bild">Bild</label>
+                    <label for="bild" class="btn2">Välj fil</label>
+                    <input type="file" id="bild" name="bild" accept="image/png, image/jpeg" hidden required>
+
+                    <label for="sku">SKU</label>
+                    <input type="text" id="sku" name="sku" placeholder="Ange SKU" pattern="^[A-Za-z]{3}[0-9]{3}"
+                        title="Format: AAA111" required>
+
+
+                    <label for="Pris">Pris</label>
+                    <input type="number" id="Pris" name="Pris" placeholder="Ange pris" min="0" step="0.01" required>
+
+                    <label for="publiceringsdatum">Publiceringsdatum</label>
+                    <input type="date" id="publiceringsdatum" name="publiceringsdatum" required>
+
+
+                    <h4>Kategori</h4>
+                    <div class="categories">
+                    <label>
+                        <input type="checkbox" name="kategorier" value="Vinterjackor"> Vinterjackor
+                    </label>
+                    <label>
+                        <input type="checkbox" name="kategorier" value="Pufferjackor"> Pufferjackor
+                    </label>
+                    <label>
+                        <input type="checkbox" name="kategorier" value="Kappa"> Kappa
+                    </label>
+                    <label>
+                        <input type="checkbox" name="kategorier" value="Trenchcoats"> Trenchcoats
+                    </label>
+                    <button type="submit" class="btn2">Lägg till</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

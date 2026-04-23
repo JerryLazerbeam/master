@@ -38,7 +38,7 @@ router.get('/clothes', (req, res) => {
 router.get('/selected-favorites', (req, res) => {
   res.render('selected-favorites');
 });
-router.get('/nyheter', (req, res) => {
-  res.render('nyheter');
+router.get('/news', (req, res) => {
+  res.render('news');
 });
 module.exports = router;

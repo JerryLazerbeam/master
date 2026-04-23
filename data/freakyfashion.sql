@@ -27,6 +27,8 @@ VALUES
 --Add a link column to the categories table and update it with appropriate links
 SELECT * FROM categories;
 ALTER TABLE categories ADD COLUMN link TEXT;
-UPDATE categories SET link = '/nyheter' WHERE name = 'Nyheter';
+UPDATE categories SET link = '/news' WHERE name = 'Nyheter';
 UPDATE categories SET link = '/clothes' WHERE name = 'Kläder';
+UPDATE categories SET link = '/accessories' WHERE name = 'Accessoarer';
+UPDATE categories SET link = '/shoes' WHERE name = 'Skor';
 );

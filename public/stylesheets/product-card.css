@@ -4,46 +4,60 @@
 *,
 *::before,
 *::after {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Remove default margin */
-body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
-margin: 0;
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
 /* Remove list styles */
-ul, ol {
-list-style: none;
-margin: 0;
-padding: 0;
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Set core body defaults */
 body {
-min-height: 100vh;
-line-height: 1.5;
-font-family: 'Inter', sans-serif;
-overflow-x: hidden;
-background-color: white;
-color: black;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  background-color: white;
+  color: black;
 }
 
 /* Make images easier to work with */
-img, picture {
-max-width: 100%;
-display: block;
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
 /* Remove default button styles */
-button, input, textarea, select {
-font: inherit;
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 /* Remove link underline by default */
 a {
-text-decoration: none;
-color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Container för flera t-shirts */
@@ -53,36 +67,36 @@ color: inherit;
   align-items: center;
 }
 .product-card {
-    border-radius: 1rem;
-    margin: .5rem;
-    box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.1); 
+  border-radius: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
 }
 .product-img-wrapper {
   position: relative;
   max-width: 500px;
 }
 .product-img {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 }
 .icon-heart {
-    position: absolute;
-    bottom: .5rem;
-    right: 2rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 2rem;
 }
 .icon-heart img {
-    width: 2rem;
-    height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .news {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: black;
-    color: white;
-    padding: .5rem;
-    border-radius: .5rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .product-info {
@@ -96,7 +110,6 @@ color: inherit;
   grid-column: 1;
   grid-row: 1;
   font-size: larger;
-  
 }
 
 .brand {
@@ -117,7 +130,6 @@ color: inherit;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-
 }
 @media (min-width: 1024px) {
   .product-cards {

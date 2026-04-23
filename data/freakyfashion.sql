@@ -31,4 +31,3 @@ UPDATE categories SET link = '/news' WHERE name = 'Nyheter';
 UPDATE categories SET link = '/clothes' WHERE name = 'Kläder';
 UPDATE categories SET link = '/accessories' WHERE name = 'Accessoarer';
 UPDATE categories SET link = '/shoes' WHERE name = 'Skor';
-);

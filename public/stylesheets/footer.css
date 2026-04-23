@@ -4,7 +4,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Remove default margin */
@@ -18,32 +18,32 @@ figure,
 blockquote,
 dl,
 dd {
-     margin: 0; 
+  margin: 0;
 }
 
 /* Remove list styles */
 ul,
 ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Set core body defaults */
 body {
-    min-height: 100vh;
-    line-height: 1.5;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    background-color: white;
-    color: black;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  background-color: white;
+  color: black;
 }
 
 /* Make images easier to work with */
 img,
 picture {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 /* Remove default button styles */
@@ -51,108 +51,84 @@ button,
 input,
 textarea,
 select {
-    font: inherit;
+  font: inherit;
 }
 
 /* Remove link underline by default */
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
-
-/* Styr rubrik på varje sida, så att den är centrerad och har lite padding */ 
+/* Styr rubrik på varje sida, så att den är centrerad och har lite padding */
 h3 {
-    text-align: center;
-    padding: 1rem;
-} 
- /* bara footer.css */
+  text-align: center;
+  padding: 1rem;
+}
+/* bara footer.css */
 footer {
-    display: grid;
-    justify-items: center;
-    padding: 20px;
-   
-}
-@media (min-width: 640px) {
-    footer {
-      background-color: rgb(221, 218, 218);
-    }
-
-}
-/* Stry accordion och footer-navbar så att de inte visas på desktop, och visa dem på mobil */
-@media (min-width: 640px) {
-  .accordion {
-    display: none;
-  }
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 20px 10px 0 10px;  
-    justify-content: start; 
-    background-color: rgb(221, 218, 218); 
-   
-
-}
-
-.footer-container h4 {
-    font-weight: 500;
-    margin-bottom: 10px;    
-    
-}
-
-a {
-    display: block;
-    font-size: 14px;
-    font-weight: 500; 
-    margin-bottom: 10px; 
-    
-    
-}
-
-
-@media (max-width: 640px) {
-    .footer-container {
-        display: none;
-    }
+  display: grid;
+  justify-items: center;
+  padding: 20px;
 }
 /* Styr allt som har med small-icons att göra, på alla sidor */
 .small-icons > div {
-display: flex;
-gap: 1rem;
-align-items: center;
-
-
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .small-icons {
-display: grid;
-gap: 1rem;
-margin: 2.5rem 0rem 1.5rem 1rem;
-
+  display: grid;
+  gap: 1rem;
+  margin: 2.5rem 0rem 1.5rem 1rem;
 }
 .small-icons img {
-width: 34px;
-height: 34px;
-
+  width: 34px;
+  height: 34px;
 }
+
 @media (min-width: 640px) {
-.small-icons {
-grid-template-columns: 1fr 1fr;
-padding: 0 3rem 0 3rem;
-justify-items: auto;
-}
+  .small-icons {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 3rem 0 3rem;
+    justify-items: auto;
+  }
 
-.small-icons > div {
-display: flex;
-align-items: center;
-gap: 1rem;
-}
+  .small-icons > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  footer {
+    background-color: rgb(221, 218, 218);
+  }
+  .accordion {
+    display: none;
+  }
+  .footer-container {
+    display: flex;
+    gap: 7rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    background-color: rgb(221, 218, 218);
+  }
 
-}
+  }
+  .footer-container h4 {
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  a {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
 @media (min-width: 1024px) {
-.small-icons {
-grid-template-columns: 1fr 1fr 1fr 1fr;
-}
+  .small-icons {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

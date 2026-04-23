@@ -17,4 +17,16 @@ if (!table) {
   console.log("Database created automatically");
 }
 
+const count = db.prepare('SELECT COUNT(*) as count FROM categories').get();
+
+if (count.count === 0) {
+  db.exec(`
+    INSERT INTO categories (name)
+    VALUES
+    ('Nyheter'),
+    ('Kläder'),
+    ('Accessoarer'),
+    ('Skor')
+  `);
+}
 module.exports = db;

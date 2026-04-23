@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-const adminRouter = require('./routes/admin');
+const adminRouter = require('./routes/admin/index');
 app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler

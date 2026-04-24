@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/stylesheets/clothes.css">
+        <link rel="stylesheet" href="/stylesheets/product-card.css">
         <title>Kläder</title>
     </head>
 
@@ -15,11 +16,10 @@
                 <div class="product-cards">
                     <div class="product-card">
                         <div class="product-img-wrapper">
-                            <a href="#">
-                                <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                                <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
-                                        alt="heart-fill" /></span>
+                           <a href="/products">
+                                <img class="product-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
                             </a>
+                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
                         </div>
 
                         <div class="product-info">
@@ -30,11 +30,10 @@
                     </div>
                     <div class="product-card">
                         <div class="product-img-wrapper">
-                            <a href="#">
-                                <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                                <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
-                                        alt="heart-fill" /></span>
+                            <a href="/products">
+                                <img class="product-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
                             </a>
+                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
 
                         </div>
 
@@ -46,11 +45,10 @@
                     </div>
                     <div class="product-card">
                         <div class="product-img-wrapper">
-                            <a href="#">
-                                <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                                <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
-                                        alt="heart-fill" /></span>
+                            <a href="/products">
+                                <img class="product-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
                             </a>
+                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
 
                         </div>
 
@@ -66,5 +64,11 @@
         
                         <%- include('partials/layout/footer') %>
     </body>
+        <script>
+function toggleHeart(el) {
+  el.classList.toggle("active");
+}
+</script>
+      
 
     </html>

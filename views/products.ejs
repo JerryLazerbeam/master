@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/products.css">
+    <link rel="stylesheet" href="/stylesheets/product-card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <title>Product</title>
 </head>
 <body>
     <%- include('partials/layout/header') %>
-    <div class="container-product-details">
-            <div class="product-img">
-                <a href="#">
-                    <img class="tshirt-bild" src="images/pngegg.png" alt="t-shirt">
+    
+        <div class="products-wrapper">   
+            <div class="products-img">
+                 <a href="/products">
+                    <img class="product-img-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
                 </a>
-                <span class="icon-right"><img src="/images/icons/suit-heart-fill.svg" alt="heart-fill"></span>
+                <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
+
             </div>
                 <div class="container-infovarukorg">
                     <div class="produktdetaljer">
@@ -28,7 +31,8 @@
                         <a href="/basket"><button>Lägg i varukorg</button></a>
                     </div>
                 </div>
-    </div>
+        </div>
+    
     <div><h2 class="liknande">Liknande produkter</h2></div>
     <div class="slider-wrapper swiper">
   
@@ -92,5 +96,10 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/javascripts/products.js"></script>
+    <script>
+        function toggleHeart(el) {
+        el.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>

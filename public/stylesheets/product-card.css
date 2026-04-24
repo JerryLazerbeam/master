@@ -39,13 +39,6 @@ body {
   color: black;
 }
 
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
 /* Remove default button styles */
 button,
 input,
@@ -68,32 +61,41 @@ a {
 }
 .product-card {
   border-radius: 1rem;
-  margin: 0.5rem;
+  margin: .5rem 2rem .5rem 2rem;
   box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
 }
 .product-img-wrapper {
-  position: relative;
-  max-width: 500px;
+    position: relative;
+  }
+  .product-img {
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 1rem 1rem 0rem 0rem;
 }
-.product-img {
-  width: 100%;
-  display: block;
-}
-.icon-heart {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 2rem;
-}
+  .icon-heart {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
 .icon-heart img {
-  width: 2rem;
-  height: 2rem;
+    width: 35px;
+    height: 35px;
+    filter: brightness(0) invert(1); /* gör den vit */
+    transition: 0.2s;
+}
+
+/* när den är aktiv */
+.icon-heart img.active {
+    filter: invert(0.5) sepia(1) saturate(2) hue-rotate(320deg);
 }
 
 .news {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: black;
+  background-color: rgba(195, 79, 79, 0.527);
   color: white;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -130,10 +132,13 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  .product-card {
+  margin: .5rem;
 }
 @media (min-width: 1024px) {
   .product-cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
 }

@@ -87,6 +87,9 @@ footer {
   width: 34px;
   height: 34px;
 }
+.footer-container {
+  display: none;
+}
 
 @media (min-width: 640px) {
   .small-icons {

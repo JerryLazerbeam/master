@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,98 +9,93 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <title>Product</title>
 </head>
+
 <body>
     <%- include('partials/layout/header') %>
-    
-        <div class="products-wrapper">   
+
+        <div class="products-wrapper">
             <div class="products-img">
-                 <a href="/products">
-                    <img class="product-img-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
+                <a href="/products/<%= product.slug %>">
+                    <img class="product-img-img" src="<%= product.image %>" alt="t-shirt" />
                 </a>
-                <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
+                <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
+                        onclick="toggleHeart(this)"></span>
 
             </div>
-                <div class="container-infovarukorg">
-                    <div class="produktdetaljer">
-                        <p class="svart-tshirt">Svart T-shirt</p>
-                        <p class="levis">Levis</p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem modi consectetur excepturi perspiciatis recusandae sit. Rerum unde eum, maiores recusandae, ipsum, veritatis eveniet ipsam fugiat aut aliquid soluta architecto maxime?</p>
-                        <p class="priset">199 SEK</p>
-                    </div>
-                   
-                    <div class="btnvarukorg">
-                        <a href="/basket"><button>Lägg i varukorg</button></a>
-                    </div>
+            <div class="container-infovarukorg">
+                <div class="produktdetaljer">
+                    <p class="svart-tshirt">
+                        <%= product.name %>
+                    </p>
+                    <p class="levis">
+                        <%= product.brand %>
+                    </p>
+                    <p>
+                        <%= product.description %>
+                    </p>
+                    <p class="priset">
+                        <%= product.price %> SEK
+                    </p>
                 </div>
+
+                <div class="btnvarukorg">
+                    <a href="/basket"><button>Lägg i varukorg</button></a>
+                </div>
+            </div>
         </div>
-    
-    <div><h2 class="liknande">Liknande produkter</h2></div>
-    <div class="slider-wrapper swiper">
-  
-            <div class="swiper-wrapper">
-            
-                <div class="card-item swiper-slide">
-                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
-                    <h2>Svart T-shirt</h2>
-                    <p>Levis</p>
+
+        <div>
+            <h2 class="liknande">Liknande produkter</h2>
+        </div>
+        <div class="slider-wrapper swiper">
+
+                <div class="swiper-wrapper">
+
+                    <% related.forEach(p=> { %>
+
+                        <div class="card-item swiper-slide">
+                            <a href="/products/<%= p.slug %>">
+                                <img src="<%= p.image %>" class="bild-slide">
+                            </a>
+
+                            <h2>
+                                <%= p.name %>
+                            </h2>
+                            <p>
+                                <%= p.brand %>
+                            </p>
+
+                        </div>
+
+                        <% }) %>
+
                 </div>
-
-                <div class="card-item swiper-slide">
-                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
-                    <h2>Svart T-shirt</h2>
-                    <p>Levis</p>
-                </div>
-
-                <div class="card-item swiper-slide">
-                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
-                    <h2>Svart T-shirt</h2>
-                    <p>Levis</p>
-                </div>
-
-                <div class="card-item swiper-slide">
-                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
-                    <h2>Svart T-shirt</h2>
-                    <p>Levis</p>
-                </div>
-
-                <div class="card-item swiper-slide">
-                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
-                    <h2>Svart T-shirt</h2>
-                    <p>Levis</p>
-                </div>
-
-                <div class="card-item swiper-slide">
-                    <a href="#"><img src="images/pngegg.png" class="bild-slide"></a>
-                    <h2>Svart T-shirt</h2>
-                    <p>Levis</p>
-                </div>   
-            </div>
-        
-
             <!-- UTANFÖR wrappern -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-pagination"></div>
-    </div>
-    
-              <%- include('partials/layout/footer') %>
-    <script>
-    const dropdowns = document.querySelectorAll(".dropdown");
+            </div>
+        </div>
 
-    dropdowns.forEach(dropdown => {
-    const button = dropdown.querySelector(".dropbtn");
+        <%- include('partials/layout/footer') %>
+            <script>
+                const dropdowns = document.querySelectorAll(".dropdown");
 
-    button.addEventListener("click", () => {
-      dropdown.classList.toggle("active");
-    });
-    });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="/javascripts/products.js"></script>
-    <script>
-        function toggleHeart(el) {
-        el.classList.toggle("active");
-        }
-    </script>
+                dropdowns.forEach(dropdown => {
+                    const button = dropdown.querySelector(".dropbtn");
+
+                    button.addEventListener("click", () => {
+                        dropdown.classList.toggle("active");
+                    });
+                });
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script src="/javascripts/products.js"></script>
+            <script>
+                function toggleHeart(el) {
+                    el.classList.toggle("active");
+                }
+            </script>
 </body>
+
 </html>

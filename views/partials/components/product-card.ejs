@@ -1,139 +1,38 @@
-<!DOCTYPE html>
-<html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/product-card.css" />
-  </head>
-  <body>
-    <div class="product-cards">
+<link rel="stylesheet" href="/stylesheets/product-card.css" />
+
+<body>
+  <div class="product-cards">
+    <% products.forEach(product=> { %>
+
       <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
+
+        <div class="product-img-wrapper">
+          <a href="/products/<%= product.slug %>">
+            <img class="product-img" src="<%= product.image %>" alt="t-shirt" />
           </a>
-            <span class="icon-heart">
-              <img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          
+          <span class="icon-heart">
+            <img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
+
           <span class="news">Nyhet</span>
         </div>
 
         <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
+          <span class="product-name">
+            <%= product.name %>
+          </span>
+          <span class="price">
+            <%= product.price %> SEK
+          </span>
+          <span class="brand">
+            <%= product.brand %>
+          </span>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/usama-akram-g3CMh2nqj_w-unsplash.jpg" alt="t-shirt"/>
-          </a>
-            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          <span class="news">Nyhet</span>
-        </div>
-
-        <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/cgxl-media-92_tCTr9rtw-unsplash.jpg" alt="t-shirt"/>
-          </a>
-            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          
-          <span class="news">Nyhet</span>
-        </div>
-
-        <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/ingo-zoll-6Mve42Iy8Y0-unsplash.jpg" alt="t-shirt"/>
-          </a>
-            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          <span class="news">Nyhet</span>
-        </div>
-
-        <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/leo_visions-XQ2kfYqbl8U-unsplash.jpg" alt="t-shirt"/>
-          </a>
-            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          <span class="news">Nyhet</span>
-        </div>
-
-        <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/mediamodifier-7cERndkOyDw-unsplash.jpg" alt="t-shirt"/>
-          </a>
-            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          <span class="news">Nyhet</span>
-        </div>
-
-        <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/mediamodifier-kJXGTOY1wLQ-unsplash.jpg" alt="t-shirt"/>
-          </a>
-            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          <span class="news">Nyhet</span>
-        </div>
-
-        <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrapper">  
-          <a href="/products">
-            <img class="product-img" src="/images/Selected/pexels-elif-deniz-karabacak-644787261-32322181.jpg" alt="t-shirt"/>
-          </a>
-            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-          <span class="news">Nyhet</span>
-        </div>
-
-        <div class="product-info">
-            <span class="product-name">Svart T-shirt</span>
-            <span class="price">199 SEK</span>
-            <span class="brand">Levis</span>
-        </div>
-      </div>
-    </div>
-    <script>
-function toggleHeart(el) {
-  el.classList.toggle("active");
-}
-</script>
-      
+      <% }) %>
+  </div>
+  </div>
+  <script>
+    function toggleHeart(el) {
+      el.classList.toggle("active");
+    }
+  </script>

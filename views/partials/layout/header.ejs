@@ -25,9 +25,12 @@
                     <a href="/favorites"><img src="/images/icons/suit-heart-fill.svg" alt="favorit"></a>
                     <a href="/basket"><img src="/images/icons/basket2-fill.svg" alt="kundkorg"></a>
                     <% if (user) { %>
-                        
-                            <img class="logout-icon" src="/images/icons/person-circle.svg" onclick="toggleMenu()" alt="Inloggad">
-    
+                        <% const tooltipText = user.role === 'admin' ? 'Inloggad som admin' : `Inloggad som ${user.firstname || user.email}`; %>
+                        <button class="account-button" type="button" onclick="toggleMenu()" aria-label="<%= tooltipText %>">
+                            <img class="logout-icon" src="/images/icons/person-circle.svg" alt="">
+                            <span class="account-tooltip" role="tooltip"><%= tooltipText %></span>
+                        </button>
+
                         <div id="dropdownMenu" class="hidden">
                             <a href="/logout">Logga ut</a>
                             <a href="/account">Mitt konto</a>
@@ -77,6 +80,21 @@ function toggleMenu() {
   const menu = document.getElementById("dropdownMenu");
   menu.classList.toggle("hidden");
 }
+document.addEventListener("click", function (event) {
+  const menu = document.getElementById("dropdownMenu");
+  const accountButton = document.querySelector(".account-button");
+
+  if (!menu || !accountButton) return;
+
+  const clickedInsideMenu = menu.contains(event.target);
+  const clickedAccountButton = accountButton.contains(event.target);
+
+  if (!clickedInsideMenu && !clickedAccountButton) {
+    menu.classList.add("hidden");
+  }
+});
+</script>
+
 </script>
 
     <script src="/javascripts/search.js"></script>

@@ -114,11 +114,20 @@ input:focus {
 .icons {
   display: flex;
   gap: .2rem;
+  
+}
+.icons a,
+.account-button {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icons img {
   height: 2rem;
-  margin: 0.5rem;
+  margin: 0;
   filter: invert(0);
 }
 
@@ -130,6 +139,49 @@ input:focus {
   position: relative;
   height: 2rem;
   margin: .5rem;
+}
+
+.account-button {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.account-tooltip {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  transform: none;
+  width: max-content;
+  max-width: min(220px, 90vw);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: #111;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1001;
+}
+
+.account-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 14px;
+  transform: none;
+  border: 6px solid transparent;
+  border-top-color: #111;
+}
+
+.account-button:hover .account-tooltip,
+.account-button:focus-visible .account-tooltip {
+  opacity: 1;
 }
 
 #dropdownMenu {

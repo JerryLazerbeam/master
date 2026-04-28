@@ -71,15 +71,57 @@
                     <% }) %>
             </ul>
         </nav>
-    </header>
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("dropdownMenu");
-  menu.classList.toggle("hidden");
-}
-</script>
+        <div class="accordion mobile-accordion" id="categoryAccordion">
+            <% categories.forEach((category, index) => { %>
+          <div class="accordion-item">
+                <button 
+                  class="accordion-button collapsed" 
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-<%= index %>">
+                  
+                  <%= category.name %>
+                </button>
+              
+          
 
-    <script src="/javascripts/search.js"></script>
+              <% if (category.subcategories && category.subcategories.length > 0) { %>
+              <div id="collapse-<%= index %>" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <% category.subcategories.forEach(sub => { %>
+                    <a href="<%= sub.link %>" class="accordion-link">
+                      <%= sub.name %>
+                    </a>
+                  <% }) %>
+                </div>
+              </div>
+              <% } else { %>
+              <!-- Om ingen subcategory → gör hela knappen till länk -->
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  const btn = document.querySelector('[data-bs-target="#collapse-<%= index %>"]');
+                  if (btn) {
+                    btn.addEventListener("click", () => {
+                      window.location.href = "<%= category.link %>";
+                    });
+                    }
+                  });
+              </script>
+              <% } %>
+
+              <% }) %>
+          </div>
+        </div>  
+        
+    </header>
+      <script>
+        function toggleMenu() {
+        const menu = document.getElementById("dropdownMenu");
+        menu.classList.toggle("hidden");
+       }
+      </script>
+
+      <script src="/javascripts/search.js"></script>
 </body>
 
 </html>

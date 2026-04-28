@@ -37,17 +37,18 @@ VALUES
 
 CREATE TABLE categories (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL
+  name TEXT NOT NULL,
+  link TEXT
 );
 
-INSERT INTO categories (name)
+INSERT INTO categories (name, link)
 VALUES
-('Nyheter'),
-('Kläder'),
-('Accessoarer'),
-('Skor'); 
+('Nyheter', '/news'),
+('Kläder', '/clothes'),
+('Accessoarer', '/accessories'),
+('Skor', '/shoes'); 
 
---Add a link column to the categories table and update it with appropriate links
+/*Add a link column to the categories table and update it with appropriate links
 SELECT * FROM categories;
 ALTER TABLE categories ADD COLUMN link TEXT;
 UPDATE categories SET link = '/news' WHERE name = 'Nyheter';
@@ -102,3 +103,39 @@ UPDATE products SET category='clothes'
 WHERE slug='hoodie-off-white';
 UPDATE products SET category='clothes'
 WHERE slug='hoodie-rose';
+UPDATE categories SET link = '/clothes' WHERE name = 'Kläder';
+UPDATE categories SET link = '/accessories' WHERE name = 'Accessoarer';
+UPDATE categories SET link = '/shoes' WHERE name = 'Skor';*/
+
+CREATE TABLE subcategories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  link TEXT NOT NULL,
+  category_id INTEGER NOT NULL,
+  FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+INSERT INTO subcategories (name, link, category_id)
+VALUES
+('Alla nyheter', '/news', 1),
+('Senast inkommet', '/news/latest', 1),
+
+('Alla kläder', '/clothes', 2),
+('T-shirts', '/clothes/tshirts', 2),
+('Hoodies', '/clothes/hoodies', 2),
+
+('Alla accessoarer', '/accessories', 3),
+('Väskor', '/accessories/bags', 3),
+
+('Alla skor', '/shoes', 4),
+('Sneakers', '/shoes/sneakers', 4);
+
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL,
+  role TEXT NOT NULL
+);
+
+INSERT INTO users (email, password, role)
+VALUES
+('admin@freakyfashion.se', 'admin1234', 'admin');

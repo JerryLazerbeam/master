@@ -74,21 +74,31 @@ a {
     display: block;
     border-radius: 1rem 1rem 0rem 0rem;
 }
-  .icon-heart {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-  }
+.icon-heart {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.icon-heart button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
 .icon-heart img {
     width: 35px;
     height: 35px;
-    filter: brightness(0) invert(1); /* gör den vit */
     transition: 0.2s;
+    opacity: 0.1;
 }
 
 /* när den är aktiv */
 .icon-heart img.active {
     filter: invert(0.5) sepia(1) saturate(2) hue-rotate(320deg);
+    opacity: 1;
+    
 }
 
 .news {

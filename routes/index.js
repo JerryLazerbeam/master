@@ -9,19 +9,18 @@ router.get('/', function(req, res, next) {
   try {
     const select = db.prepare('SELECT * FROM products');
     const products = select.all();
+    const notFound = req.query.notFound || '';
 
     res.render('index',{
       title: 'FreakyFashion',
-      products
+      products,
+      notFound
     });
 
   } catch (error) {
     console.log(error);
     res.send("ERROR KOLLA TERMINAL");
   }
-});
-router.get('/favorites', (req, res,) => {
-  res.render('favorites');
 });
 router.get('/login', (req, res,) => {
   res.render('login');
@@ -41,4 +40,8 @@ router.get('/selected-favorites', (req, res) => {
 router.get('/news', (req, res) => {
   res.render('news');
 });
+router.get('/register', (req, res) => {
+  res.render('register');
+});
+module.exports = router;
 module.exports = router;

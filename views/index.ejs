@@ -6,10 +6,18 @@
     <%= title %>
   </title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="icon" href="/images/icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" />
+ 
 </head>
 
 <body>
   <%- include('partials/layout/header') %>
+
+  <% if (notFound) { %>
+  <script>
+    alert('Tyvärr, vi kunde inte hitta någon produkt som matchar "<%= notFound %>"');
+  </script>
+<% } %>
 
     <%- include('partials/components/hero') %>
       <%- include('partials/components/spots') %>

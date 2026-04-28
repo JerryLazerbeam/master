@@ -2,3 +2,8 @@ h3 {
   text-align: center;
   padding: 5rem;
 }
+
+.empty-favorites {
+  text-align: center;
+  margin-bottom: 5rem;
+}

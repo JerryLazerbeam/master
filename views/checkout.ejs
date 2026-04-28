@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassa</title>
+</head>
+
+<body>
+
+    <%- include('partials/layout/header') %>
+
+        <link rel="stylesheet" href="/stylesheets/checkout.css">
+
+        <main class="checkout-page">
+            <h1 class="checkout-title">Kassa</h1>
+
+            <div class="checkout-layout">
+                <section class="checkout-summary">
+                    <h2>Din beställning</h2>
+
+                    <% basketItems.forEach(item=> { %>
+                        <div class="checkout-row">
+                            <div>
+                                <p class="checkout-product-name">
+                                    <%= item.name %>
+                                </p>
+                                <p class="checkout-product-meta">
+                                    <%= item.quantity %> x <%= item.price %> SEK
+                                </p>
+                            </div>
+                            <div class="checkout-row-actions">
+                                <p>
+                                    <%= item.total %> SEK
+                                </p>
+
+                                <form action="/basket/remove" method="POST">
+                                    <input type="hidden" name="productId" value="<%= item.id %>">
+                                    <input type="hidden" name="redirectTo" value="/checkout">
+
+                                    <button class="checkout-remove-button" type="submit" aria-label="Ta bort produkt">
+                                        <img src="/images/icons/trash.svg" alt="">
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <% }) %>
+
+                            <div class="checkout-total">
+                                <span>Totalt</span>
+                                <span>
+                                    <%= totalPrice %> SEK
+                                </span>
+                            </div>
+                </section>
+
+                <form class="checkout-form" onsubmit="return false;">
+                    <h2>Dina uppgifter</h2>
+
+                    <label>
+                        Förnamn
+                        <input type="text" name="firstname">
+                    </label>
+
+                    <label>
+                        Efternamn
+                        <input type="text" name="lastname">
+                    </label>
+
+                    <label>
+                        E-post
+                        <input type="email" name="email">
+                    </label>
+
+                    <label>
+                        Adress
+                        <input type="text" name="address">
+                    </label>
+
+                    <button class="checkout-button" type="submit">Slutför köp</button>
+                </form>
+            </div>
+        </main>
+
+        <%- include('partials/layout/footer') %>
+
+
+</body>
+
+</html>

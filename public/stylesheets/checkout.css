@@ -1,0 +1,127 @@
+/* ===== Checkout ===== */
+
+.checkout-page {
+  padding: 0 1rem 2rem;
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.checkout-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.checkout-summary,
+.checkout-form {
+  width: 100%;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0px 1px 40px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.checkout-summary h2,
+.checkout-form h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.checkout-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.checkout-row:last-child {
+  border-bottom: 0;
+}
+
+.checkout-product-name {
+  font-weight: 600;
+}
+
+.checkout-product-meta {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkout-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.checkout-form input {
+  height: 2.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+}
+
+.checkout-button {
+  width: 15rem;
+  height: 3rem;
+  align-self: center;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.checkout-button:hover {
+  background-color: #e9e9e9;
+}
+
+@media (min-width: 800px) {
+  .checkout-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .checkout-summary,
+  .checkout-form {
+    padding: 1.5rem;
+  }
+}.checkout-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkout-remove-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.checkout-remove-button img {
+  width: 16px;
+  height: 16px;
+}
+

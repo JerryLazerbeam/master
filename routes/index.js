@@ -25,9 +25,6 @@ router.get('/', function(req, res, next) {
 router.get('/login', (req, res,) => {
   res.render('login');
 });
-router.get('/basket', (req, res) => {
-  res.render('basket');
-});
 router.get('/products', (req, res) => {
   res.render('products');
 });

@@ -7,6 +7,7 @@ const session = require('express-session');
 
 const fs = require('fs');
 const db = require('./data/db');
+const session = require('express-session');
 
 
 
@@ -54,6 +55,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: 'hemlig-nyckel',resave: false,saveUninitialized: false}));
 
 
 app.use(session({
@@ -89,6 +91,10 @@ const categoriesWithSubs = categories.map(category => {
   res.locals.categories = categoriesWithSubs;
   next();
 });
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
 
 
 // =========================
@@ -96,10 +102,11 @@ const categoriesWithSubs = categories.map(category => {
 // =========================
 app.use('/favorites', favoritesRouter);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 app.use('/products', productRoutes);
 app.use('/admin', adminRouter);
 app.use('/search', searchRouter);
+
 
 
 

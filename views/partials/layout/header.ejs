@@ -24,6 +24,18 @@
                 <div class="icons">
                     <a href="/favorites"><img src="/images/icons/suit-heart-fill.svg" alt="favorit"></a>
                     <a href="/basket"><img src="/images/icons/basket2-fill.svg" alt="kundkorg"></a>
+                    <% if (user) { %>
+                        
+                            <img class="logout-icon" src="/images/icons/person-circle.svg" onclick="toggleMenu()" alt="Inloggad">
+    
+                        <div id="dropdownMenu" class="hidden">
+                            <a href="/logout">Logga ut</a>
+                            <a href="/account">Mitt konto</a>
+                        </div>
+                    <% } else { %>
+                    <a href="/login"><img src="/images/icons/box-arrow-in-right.svg" alt="login"></a>
+                    <% } %>
+                    
 
                     <% if (!user) { %>
                         <a href="/login"><img src="/images/icons/box-arrow-in-right.svg" alt="login"></a>
@@ -65,6 +77,13 @@
             </ul>
         </nav>
     </header>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("dropdownMenu");
+  menu.classList.toggle("hidden");
+}
+</script>
+
     <script src="/javascripts/search.js"></script>
 </body>
 

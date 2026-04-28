@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/category.css">
+    <link rel="stylesheet" href="/stylesheets/product-card.css">
+    <title>Accessoarer</title>
+</head>
+
+<body>
+    <%- include('partials/layout/header') %>
+
+        <main>
+
+            <h3>
+                <%= category %>
+            </h3>
+
+            <div class="product-cards">
+
+                <% products.forEach(product=> { %>
+
+                    <div class="product-card">
+
+                        <div class="product-img-wrapper">
+                            <a href="/products/<%= product.slug %>">
+                                <img class="product-img" src="<%= product.image %>">
+                            </a>
+
+                            <span class="icon-heart">
+                                <img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
+
+                            <span class="news">Nyhet</span>
+
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">
+                                <%= product.name %>
+                            </span>
+
+                            <span class="price">
+                                <%= product.price %> SEK
+                            </span>
+
+                            <span class="brand">
+                                <%= product.brand %>
+                            </span>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+
+
+        </main>
+
+
+        <%- include('partials/layout/footer') %>
+</body>
+<script>
+    function toggleHeart(el) {
+        el.classList.toggle("active");
+    }
+</script>
+
+</html>

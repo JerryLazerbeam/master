@@ -16,6 +16,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const productRoutes = require('./routes/products');
 const adminRouter = require('./routes/admin/index');
+const categoryRoutes = require('./routes/category');
 const searchRouter = require('./routes/search');
 const favoritesRouter = require('./routes/favorites');
 
@@ -105,6 +106,7 @@ app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/products', productRoutes);
 app.use('/admin', adminRouter);
+app.use('/category', categoryRoutes);
 app.use('/search', searchRouter);
 
 

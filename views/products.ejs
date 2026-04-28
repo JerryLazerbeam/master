@@ -18,7 +18,7 @@
                 <a href="/products/<%= product.slug %>">
                     <img class="product-img-img" src="<%= product.image %>" alt="t-shirt" />
                 </a>
-                <form class="icon-heart" action="/favorites/<%= product.id %>/toggle" method="POST">
+                <form class="icon-heart favorite-form" action="/favorites/<%= product.id %>/toggle" method="POST">
                     <button type="submit" aria-label="Lägg till eller ta bort favorit">
                         <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>" src="/images/icons/suit-heart-fill.svg" alt="">
                     </button>
@@ -94,6 +94,7 @@
             </script>
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
             <script src="/javascripts/products.js"></script>
+            <script src="/javascripts/favorites.js"></script>
 </body>
 
 </html>

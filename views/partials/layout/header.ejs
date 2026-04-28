@@ -11,37 +11,61 @@
 <body>
     <header>
         <div class="header-container">
-           <a href="/">
-            <img class="header-logo" src="/images/ChatGPT Image 20 mars 2026 18_47_47.png" alt="header img">
+            <a href="/">
+                <img class="header-logo" src="/images/ChatGPT Image 20 mars 2026 18_47_47.png" alt="header img">
             </a>
-            <div class="search-row">    
-                <div class="search-wrapper">
-                    <img src="/images/icons/search.svg" alt="search-icon" class="searchicon">
-                    <input class="search" type="search" placeholder="Sök produkt">
-                </div>
-                    
+            <div class="search-row">
+                <form action="/search" method="GET" class="search-wrapper">
+                    <img src="/images/icons/search.svg" alt="search-icon" class="searchicon" autocomplete="off">
+                    <input id="searchInput" class="search" type="search" placeholder="Sök produkt" name="q"
+                        autocomplete="off">
+                    <div id="searchDropdown" class="search-dropdown"></div>
+                </form>
                 <div class="icons">
                     <a href="/favorites"><img src="/images/icons/suit-heart-fill.svg" alt="favorit"></a>
                     <a href="/basket"><img src="/images/icons/basket2-fill.svg" alt="kundkorg"></a>
-                    <a href="/login"><img src="/images/icons/box-arrow-in-right.svg" alt="login"></a>
-                    
+
+                    <% if (!user) { %>
+                        <a href="/login"><img src="/images/icons/box-arrow-in-right.svg" alt="login"></a>
+                        <% } else { %>
+                            <% if (user.role==='admin' ) { %>
+                                <a href="/admin/products">
+                                    <img src="/images/icons/admin_panel_settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="admin">
+                                </a>
+                                <% } %>
+                                    <a href="/login"><img src="/images/icons/box-arrow-in-right.svg" alt="login"></a>
+                                    <a href="/users/logout">
+                                        <img src="/images/icons/logout_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="logga ut">
+                                    </a>
+                                    <% } %>
+
                 </div>
             </div>
         </div>
         <nav class="menyrad">
-                <ul>
-                    <% categories.forEach(category=> { %>
-                        <li>
-                            <a href="<%= category.link %>">
-                                <%= category.name %>
-                            </a>
-                        </li>
-                        <% }) %>
-                </ul>
-            </nav>
+            <ul class="menu-list">
+                <% categories.forEach(category=> { %>
+                    <li class="menu-item">
+                        <a href="<%= category.link %>">
+                            <%= category.name %>
+                        </a>
+                        <% if (category.subcategories && category.subcategories.length> 0) { %>
+                            <ul class="dropdown-menu">
+                                <% category.subcategories.forEach(subcategory=> { %>
+                                    <li class="subcategory">
+                                        <a href="<%= subcategory.link %>">
+                                            <%= subcategory.name %>
+                                        </a>
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                            <% } %>
+                    </li>
+                    <% }) %>
+            </ul>
         </nav>
     </header>
-
+    <script src="/javascripts/search.js"></script>
 </body>
 
 </html>

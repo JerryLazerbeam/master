@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="/stylesheets/product-card.css"> 
       <link rel="stylesheet" href="/stylesheets/favorites.css"> 
-    <title>Favorites</title>
+    <title>Mina favoriter</title>
 </head>
 
 <body>
@@ -15,55 +15,11 @@
 
             <h3>Mina Favoriter</h3>
 
-            <div class="product-cards">
-                <div class="product-card">
-                    <div class="product-img-wrapper">
-                        <a href="#">
-                            <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
-                                    alt="heart-fill" /></span>
-                        </a>
-                    </div>
-
-                    <div class="product-info">
-                        <span class="product-name">Svart T-shirt</span>
-                        <span class="price">199 SEK</span>
-                        <span class="brand">Levis</span>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img-wrapper">
-                        <a href="#">
-                            <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
-                                    alt="heart-fill" /></span>
-                        </a>
-
-                    </div>
-
-                    <div class="product-info">
-                        <span class="product-name">Svart T-shirt</span>
-                        <span class="price">199 SEK</span>
-                        <span class="brand">Levis</span>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img-wrapper">
-                        <a href="#">
-                            <img class="product-img" src="/images/pngegg.png" alt="t-shirt" />
-                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
-                                    alt="heart-fill" /></span>
-                        </a>
-
-                    </div>
-
-                    <div class="product-info">
-                        <span class="product-name">Svart T-shirt</span>
-                        <span class="price">199 SEK</span>
-                        <span class="brand">Levis</span>
-                    </div>
-                </div>
-            </div>
+            <% if (products.length) { %>
+                <%- include('partials/components/product-card', { products: products }) %>
+            <% } else { %>
+                <p class="empty-favorites">Du har inga favoriter ännu.</p>
+            <% } %>
         </main>
 
 

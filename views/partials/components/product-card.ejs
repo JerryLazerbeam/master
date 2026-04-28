@@ -10,8 +10,11 @@
           <a href="/products/<%= product.slug %>">
             <img class="product-img" src="<%= product.image %>" alt="t-shirt" />
           </a>
-          <span class="icon-heart">
-            <img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
+          <form class="icon-heart" action="/favorites/<%= product.id %>/toggle" method="POST">
+            <button type="submit" aria-label="Lägg till eller ta bort favorit">
+              <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>" src="/images/icons/suit-heart-fill.svg" alt="">
+            </button>
+          </form>
 
           <span class="news">Nyhet</span>
         </div>
@@ -31,8 +34,3 @@
       <% }) %>
   </div>
   </div>
-  <script>
-    function toggleHeart(el) {
-      el.classList.toggle("active");
-    }
-  </script>

@@ -128,3 +128,75 @@ color: inherit;
   text-align: left;
   padding-left: 0.5rem;
 }
+.back-home-floating {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background:  rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+}
+
+.back-home-floating img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.6;
+}
+.back-home-menu {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2000;
+}
+
+.back-home-floating {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+}
+
+.back-home-dropdown {
+  position: absolute;
+  right: 0;
+  bottom: 56px;
+  min-width: 180px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 8px 0;
+  display: none;
+}
+
+.back-home-dropdown a {
+  display: block;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+}
+
+.back-home-dropdown a:hover {
+  background: #f5f5f5;
+}
+
+.back-home-menu:hover .back-home-dropdown {
+  display: block;
+}
+

@@ -12,14 +12,16 @@
     <%- include('partials/layout/header') %>
         <h3>Logga in</h3>
 
-        <form class="register">
+        <form class="register" action="/users/login" method="POST">
             <label for="email" class="email">E-post</label>
             <input type="email" name="email" required>
 
             <label for="password" class="password">Lösenord</label>
             <input type="password"  name="password" required>
+
+            <div class="register-btn"><button type="submit">Logga in</button></div>
         </form>
-        <div class="register-btn"><button type="submit">Logga in</button></div>
+       
     
 
 

@@ -18,8 +18,11 @@
                 <a href="/products/<%= product.slug %>">
                     <img class="product-img-img" src="<%= product.image %>" alt="t-shirt" />
                 </a>
-                <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg"
-                        onclick="toggleHeart(this)"></span>
+                <form class="icon-heart" action="/favorites/<%= product.id %>/toggle" method="POST">
+                    <button type="submit" aria-label="Lägg till eller ta bort favorit">
+                        <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>" src="/images/icons/suit-heart-fill.svg" alt="">
+                    </button>
+                </form>
 
             </div>
             <div class="container-infovarukorg">
@@ -91,11 +94,6 @@
             </script>
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
             <script src="/javascripts/products.js"></script>
-            <script>
-                function toggleHeart(el) {
-                    el.classList.toggle("active");
-                }
-            </script>
 </body>
 
 </html>

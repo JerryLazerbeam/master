@@ -32,14 +32,8 @@ router.get('/basket', (req, res) => {
 router.get('/products', (req, res) => {
   res.render('products');
 });
-router.get('/clothes', (req, res) => {
-  res.render('clothes');
-});
 router.get('/accessories', (req, res) => {
   res.render('accessories');
-});
-router.get('/shoes', (req, res) => {
-  res.render('shoes');
 });
 router.get('/selected-favorites', (req, res) => {
   res.render('selected-favorites');

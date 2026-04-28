@@ -25,7 +25,7 @@ Built using Express.
 
 ### Reset Db when working or updating
 
-1. localhost:3000/reset.db
+1. localhost:3000/reset-db
 
 ### Git commit (create a new branch and push branch to Github)
 

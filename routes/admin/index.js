@@ -1,6 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+router.use((req, res, next) => {
+  if (!req.session.user || req.session.user.role !== 'admin') {
+    return res.redirect('/login');
+  }
+
+  next();
+});
+
 router.get('/products', (req, res) => {
   res.render('admin/products');
 });

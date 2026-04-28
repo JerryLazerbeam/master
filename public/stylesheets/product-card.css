@@ -74,11 +74,19 @@ a {
     display: block;
     border-radius: 1rem 1rem 0rem 0rem;
 }
-  .icon-heart {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-  }
+.icon-heart {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.icon-heart button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
 .icon-heart img {
     width: 35px;
     height: 35px;

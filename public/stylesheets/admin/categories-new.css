@@ -155,3 +155,26 @@ button.btn2 {
     display: none;
   }
 }
+.back-home-floating {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background:  rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+}
+
+.back-home-floating img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.6;
+}

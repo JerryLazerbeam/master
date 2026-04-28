@@ -38,17 +38,12 @@
                     
 
                     <% if (!user) { %>
-                        <a href="/login"><img src="/images/icons/box-arrow-in-right.svg" alt="login"></a>
                         <% } else { %>
                             <% if (user.role==='admin' ) { %>
                                 <a href="/admin/products">
                                     <img src="/images/icons/admin_panel_settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="admin">
                                 </a>
                                 <% } %>
-                                    <a href="/login"><img src="/images/icons/box-arrow-in-right.svg" alt="login"></a>
-                                    <a href="/users/logout">
-                                        <img src="/images/icons/logout_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="logga ut">
-                                    </a>
                                     <% } %>
 
                 </div>

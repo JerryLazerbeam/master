@@ -127,11 +127,13 @@ WHERE slug='hoodie-rose';
 
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstname TEXT NOT NULL,
+  lastname TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL,
   role TEXT NOT NULL
 );
 
-INSERT INTO users (email, password, role)
+INSERT INTO users (firstname, lastname, email, password, role)
 VALUES
-('admin@freakyfashion.se', 'admin1234', 'admin');
+('Admin', 'User', 'admin@freakyfashion.se', 'admin1234', 'admin');

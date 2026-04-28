@@ -12,7 +12,7 @@
     <%- include('partials/layout/header') %>
         <h3>Logga in</h3>
 
-        <form class="register" id="loginForm">
+        <form class="register" id="loginForm" action="/login" method="POST">
             <label for="email" class="email">E-post</label>
             <input type="email" name="email" id="email" required>
 
@@ -26,29 +26,4 @@
        
             <%- include('partials/layout/footer') %>
         
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        const res = await fetch("/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-        });
-
-        const data = await res.json();
-
-        if (data.success) {
-        window.location.href = "/";
-        } else {
-        alert(data.error || "Fel login");
-        }
-        });
-
-    </script>
 </body>

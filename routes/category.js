@@ -24,5 +24,19 @@ router.get('/:slug', (req,res) => {
  });
 
 });
+router.get('/:category/:subcategory', (req,res) => {
 
+ const subcategory = req.params.subcategory;
+
+ const products = db.prepare(`
+   SELECT * FROM products
+   WHERE subcategory = ?
+ `).all(subcategory);
+
+ res.render('category', {
+   category: subcategory,
+   products
+ });
+
+});
 module.exports = router;

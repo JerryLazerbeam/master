@@ -47,4 +47,7 @@ router.get('/selected-favorites', (req, res) => {
 router.get('/news', (req, res) => {
   res.render('news');
 });
+router.get('/register', (req, res) => {
+  res.render('register');
+});
 module.exports = router;

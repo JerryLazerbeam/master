@@ -82,13 +82,15 @@ a {
 .icon-heart img {
     width: 35px;
     height: 35px;
-    filter: brightness(0) invert(1); /* gör den vit */
     transition: 0.2s;
+    opacity: 0.1;
 }
 
 /* när den är aktiv */
 .icon-heart img.active {
     filter: invert(0.5) sepia(1) saturate(2) hue-rotate(320deg);
+    opacity: 1;
+    
 }
 
 .news {

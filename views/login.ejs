@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
@@ -12,17 +12,43 @@
     <%- include('partials/layout/header') %>
         <h3>Logga in</h3>
 
-        <form class="register">
+        <form class="register" id="loginForm">
             <label for="email" class="email">E-post</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" id="email" required>
 
             <label for="password" class="password">Lösenord</label>
-            <input type="password"  name="password" required>
+            <input type="password"  name="password" id="password" required>
+            <div class="btn">   
+                <button type="submit">Logga in</button>
+                <button type="button" onclick="window.location.href='/register'">Skapa konto</button>
+            </div>
         </form>
-        <div class="register-btn"><button type="submit">Logga in</button></div>
-    
-
-
        
-                    <%- include('partials/layout/footer') %>
+            <%- include('partials/layout/footer') %>
+        
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const res = await fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+        window.location.href = "/";
+        } else {
+        alert(data.error || "Fel login");
+        }
+        });
+
+    </script>
 </body>

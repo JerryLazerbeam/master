@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 const fs = require('fs');
 const db = require('./data/db');
+const session = require('express-session');
 
 // Routers
 var indexRouter = require('./routes/index');
@@ -46,6 +47,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: 'hemlig-nyckel',resave: false,saveUninitialized: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -57,15 +59,20 @@ app.use((req, res, next) => {
   res.locals.categories = categories;
   next();
 });
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
 
 
 // =========================
 // ROUTES
 // =========================
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 app.use('/products', productRoutes);
 app.use('/admin', adminRouter);
+
 
 
 // =========================

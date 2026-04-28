@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title>Skapa konto</title>
+</head>
+
+<body>
+    <%- include('partials/layout/header') %>
+        <h3>Skapa konto</h3>
+
+        <form class="register" id="loginForm">
+            <label for="firstname" class="firstname">Förnamn</label>
+            <input type="text" name="firstname" id="firstname" required>
+            
+            <label for="lastname" class="lastname">Efternamn</label>
+            <input type="text" name="lastname" id="lastname" required>
+            
+            <label for="email" class="email">E-post</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password" class="password">Lösenord</label>
+            <input type="password"  name="password" id="password" required>
+            <div class="btn">   
+                <button type="submit">Skapa konto</button>
+            </div>
+        </form>
+
+                    <%- include('partials/layout/footer') %>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault(); // förhindra vanlig sidladdning
+
+    const res = await fetch('/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstname: document.getElementById('firstname').value,
+        lastname: document.getElementById('lastname').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+      })
+    });
+
+    const json = await res.json();
+    if (json.success) {
+      window.location.href = '/'; // skicka till startsidan
+    } else {
+      alert(json.error);
+    }
+    });
+</script>
+        
+</body>

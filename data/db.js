@@ -29,4 +29,12 @@ if (count.count === 0) {
     ('Skor')
   `);
 }
+db.exec(`CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstname TEXT NOT NULL,
+  lastname TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
+)`);
+
 module.exports = db;

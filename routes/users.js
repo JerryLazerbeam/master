@@ -7,6 +7,7 @@ router.get('/register', (req, res) => {
 var express = require('express');
 var router = express.Router();
 const db = require('../data/db');
+});
 
 router.post('/login', (req, res) => {
   const { email, password } = req.body;

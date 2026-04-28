@@ -1,13 +1,13 @@
 CREATE TABLE products (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  price INTEGER NOT NULL CHECK (price >= 0),
-  slug TEXT,
-  description TEXT,
-  image TEXT,
-  brand TEXT
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ name TEXT NOT NULL,
+ price INTEGER NOT NULL,
+ slug TEXT,
+ description TEXT,
+ image TEXT,
+ brand TEXT,
+ category TEXT
 );
-
 INSERT INTO products (name, price, slug, description, image, brand)
 VALUES
 ('Freaky Fashion svart t-shirt', 199, 'svart-tshirt', 'Svart t-shirt', '/images/selected/FFsvart.jpg', 'Freaky Fashion'),
@@ -41,22 +41,42 @@ CREATE TABLE categories (
   link TEXT
 );
 
-INSERT INTO categories (name, link)
+INSERT INTO categories (name,link)
 VALUES
-('Nyheter', '/news'),
-('Kläder', '/clothes'),
-('Accessoarer', '/accessories'),
-('Skor', '/shoes'); 
+('Nyheter','/news'),
+('Kläder','/category/clothes'),
+('Accessoarer','/category/accessories'),
+('Skor','/category/shoes');
 
-/*Add a link column to the categories table and update it with appropriate links
+CREATE TABLE subcategories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  link TEXT NOT NULL,
+  category_id INTEGER NOT NULL,
+  FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+INSERT INTO subcategories (name, link, category_id)
+VALUES
+('Alla nyheter', '/news', 1),
+('Senast inkommet', '/news/latest', 1),
+
+('Alla kläder', '/category/clothes', 2),
+('T-shirts', '/category/clothes/tshirts', 2),
+('Hoodies', '/category/clothes/hoodies', 2),
+
+('Alla accessoarer', '/category/accessories', 3),
+('Väskor', '/category/accessories/bags', 3),
+
+('Alla skor', '/category/shoes', 4),
+('Sneakers', '/category/shoes/sneakers', 4);
+
+/* Add a link column to the categories table and update it with appropriate links
 SELECT * FROM categories;
 ALTER TABLE categories ADD COLUMN link TEXT;
 UPDATE categories SET link = '/news' WHERE name = 'Nyheter';
 UPDATE categories SET link='/category/clothes'WHERE name='Kläder';
 UPDATE categories SET link='/category/accessories'WHERE name='Accessoarer';
-UPDATE categories SET link='/category/shoes'WHERE name='Skor';
-
-ALTER TABLE products ADD COLUMN category TEXT;
+UPDATE categories SET link='/category/shoes'WHERE name='Skor'; */
 
 UPDATE products SET category='clothes'
 WHERE slug='svart-tshirt';
@@ -103,31 +123,7 @@ UPDATE products SET category='clothes'
 WHERE slug='hoodie-off-white';
 UPDATE products SET category='clothes'
 WHERE slug='hoodie-rose';
-UPDATE categories SET link = '/clothes' WHERE name = 'Kläder';
-UPDATE categories SET link = '/accessories' WHERE name = 'Accessoarer';
-UPDATE categories SET link = '/shoes' WHERE name = 'Skor';*/
 
-CREATE TABLE subcategories (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  link TEXT NOT NULL,
-  category_id INTEGER NOT NULL,
-  FOREIGN KEY (category_id) REFERENCES categories(id)
-);
-INSERT INTO subcategories (name, link, category_id)
-VALUES
-('Alla nyheter', '/news', 1),
-('Senast inkommet', '/news/latest', 1),
-
-('Alla kläder', '/clothes', 2),
-('T-shirts', '/clothes/tshirts', 2),
-('Hoodies', '/clothes/hoodies', 2),
-
-('Alla accessoarer', '/accessories', 3),
-('Väskor', '/accessories/bags', 3),
-
-('Alla skor', '/shoes', 4),
-('Sneakers', '/shoes/sneakers', 4);
 
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

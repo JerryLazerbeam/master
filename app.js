@@ -7,9 +7,6 @@ const session = require('express-session');
 
 const fs = require('fs');
 const db = require('./data/db');
-const session = require('express-session');
-
-
 
 // Routers
 var indexRouter = require('./routes/index');
@@ -58,13 +55,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret: 'hemlig-nyckel',resave: false,saveUninitialized: false}));
 
-
+/* 
 app.use(session({
   secret: 'freakyfashion-secret',
   resave: false,
   saveUninitialized: false
 }));
-
+ */
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {

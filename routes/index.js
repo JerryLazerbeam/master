@@ -31,9 +31,6 @@ router.get('/basket', (req, res) => {
 router.get('/products', (req, res) => {
   res.render('products');
 });
-router.get('/accessories', (req, res) => {
-  res.render('accessories');
-});
 router.get('/selected-favorites', (req, res) => {
   res.render('selected-favorites');
 });
@@ -44,4 +41,4 @@ router.get('/register', (req, res) => {
   res.render('register');
 });
 module.exports = router;
-module.exports = router;
+

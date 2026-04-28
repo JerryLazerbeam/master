@@ -34,16 +34,26 @@ router.post('/:productId/toggle', (req, res) => {
   const product = db.prepare('SELECT id FROM products WHERE id = ?').get(productId);
 
   if (!product) {
+    if (req.accepts('json')) {
+      return res.status(404).json({ error: 'Produkten finns inte' });
+    }
+
     return res.redirect(req.get('Referrer') || '/favorites');
   }
 
   const favoriteProductIds = getFavoriteProductIds(req);
   const existingIndex = favoriteProductIds.indexOf(productId);
+  let isFavorite = false;
 
   if (existingIndex >= 0) {
     favoriteProductIds.splice(existingIndex, 1);
   } else {
     favoriteProductIds.push(productId);
+    isFavorite = true;
+  }
+
+  if (req.accepts('json')) {
+    return res.json({ isFavorite });
   }
 
   res.redirect(req.get('Referrer') || '/favorites');

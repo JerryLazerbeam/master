@@ -76,7 +76,6 @@ a {
 .search-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
   justify-content: space-between;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -90,6 +89,7 @@ input:focus {
   position: relative;
   width: 100%;
   display: flex;
+  margin-bottom: .5rem;
 }
 .searchicon {
   position: absolute;
@@ -110,10 +110,8 @@ input:focus {
 
 .icons {
   display: flex;
-  gap: 0.2rem;
-  gap: .2rem;
-  
 }
+
 .icons a,
 .account-button {
   width: 3rem;
@@ -190,6 +188,7 @@ input:focus {
   background-color: white;
   box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
 }
+
 
 .menyrad {
   box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
@@ -290,14 +289,34 @@ header nav a:hover {
   border: 1px solid rgb(255, 255, 255);
 }
 
+.mobile-accordion .accordion-item {
+  border-bottom: none;
+}
 .accordion-button {
   background-color: #ffffff !important;
   color: black;
   font-weight: 600;
-  padding: 0.5rem 1rem;
   min-height: unset;
+  display: flex;
+  flex-direction: row-reverse !important;
+  justify-content: flex-end !important;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
 }
 
+header .accordion-button::after {
+  width: 0.8rem !important;
+  height: 0.8rem !important;
+  background-size: 0.8rem !important;
+}
+
+.accordion-button::after {
+  margin-left: 0 !important;
+  flex-shrink: 0;
+}
 
 .accordion-link {
   display: block;
@@ -340,6 +359,7 @@ header nav a:hover {
   .icons {
     grid-column: 3;
     justify-self: end;
+    margin-right: .5rem;
   }
 
   .logout-icon {
@@ -364,7 +384,6 @@ header nav a:hover {
 
   ul {
     flex-direction: row;
-    text-align: center;
   }
   .dropdown-menu {
     position: absolute;
@@ -382,5 +401,9 @@ header nav a:hover {
 
   .menu-item:hover .dropdown-menu {
     display: block;
+  }
+
+  .mobile-accordion {
+    display: none;
   }
 }

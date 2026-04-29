@@ -12,11 +12,17 @@
           </a>
           <form class="icon-heart favorite-form" action="/favorites/<%= product.id %>/toggle" method="POST">
             <button type="submit" aria-label="Lägg till eller ta bort favorit">
-              <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>" src="/images/icons/suit-heart-fill.svg" alt="">
+              <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>"
+                src="/images/icons/suit-heart-fill.svg" alt="">
             </button>
           </form>
+          <% const createdDate=new Date(product.created_at); const now=new Date(); const diffDays=(now - createdDate) /
+            (1000 * 60 * 60 * 24); %>
 
-          <span class="news">Nyhet</span>
+            <% if (diffDays <=7) { %>
+              <span class="news">Nyhet</span>
+              <% } %>
+
         </div>
 
         <div class="product-info">

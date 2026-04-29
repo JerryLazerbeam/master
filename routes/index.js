@@ -31,9 +31,6 @@ router.get('/products', (req, res) => {
 router.get('/selected-favorites', (req, res) => {
   res.render('selected-favorites');
 });
-router.get('/news', (req, res) => {
-  res.render('news');
-});
 router.get('/register', (req, res) => {
   res.render('register');
 });

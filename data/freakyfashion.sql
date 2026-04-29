@@ -6,7 +6,8 @@ CREATE TABLE products (
  description TEXT,
  image TEXT,
  brand TEXT,
- category TEXT
+ category TEXT,
+ subcategory TEXT
 );
 INSERT INTO products (name, price, slug, description, image, brand)
 VALUES
@@ -27,7 +28,7 @@ VALUES
 ('Freaky Fashion Hoodie Black', 199, 'hoodie-black', 'Hoodie Black', '/images/selected/FFhoodieblack.jpg', 'Freaky Fashion'),
 ('Freaky Fashion Hoodie Navy', 199, 'hoodie-navy', 'Hoodie Navy', '/images/selected/FFhoodienavy.jpg', 'Freaky Fashion'),
 ('Freaky Fashion Hoodie off-white', 199, 'hoodie-off-white', 'Hoodie Off-White', '/images/selected/FFhoodieoffwhite.jpg', 'Freaky Fashion'),
-('Freaky Fashion Hoodie Rose', 199, 'hoodie-rose', 'Hoodie Rose', '/images/selected/FFoffwhiterose.jpg', 'Freaky Fashion'),
+('Freaky Fashion Hoodie White', 199, 'hoodie-white', 'Hoodie White', '/images/selected/FFhoodievit.jpg', 'Freaky Fashion'),
 ('Freaky Fashion Sneaker Black', 199, 'sneaker-black', 'Sneaker Black', '/images/selected/FFsneakerblack.jpg', 'Freaky Fashion'),
 ('Freaky Fashion Sneaker Original', 199, 'sneaker-original', 'Sneaker Original', '/images/selected/FFsneakeroriginalrubber.jpg', 'Freaky Fashion'),
 ('Freaky Fashion Sneaker White', 199, 'sneaker-white', 'Sneaker White', '/images/selected/FFsneakervwhite.jpg', 'Freaky Fashion'),
@@ -65,10 +66,11 @@ VALUES
 ('Hoodies', '/category/clothes/hoodies', 2),
 
 ('Alla accessoarer', '/category/accessories', 3),
-('Väskor', '/category/accessories/bags', 3),
+('Klockor', '/category/accessories/watches', 3),
 
 ('Alla skor', '/category/shoes', 4),
-('Sneakers', '/category/shoes/sneakers', 4);
+('Sneakers', '/category/shoes/sneakers', 4),
+('Boots', '/category/shoes/boots', 4);
 
 /* Add a link column to the categories table and update it with appropriate links
 SELECT * FROM categories;
@@ -77,6 +79,8 @@ UPDATE categories SET link = '/news' WHERE name = 'Nyheter';
 UPDATE categories SET link='/category/clothes'WHERE name='Kläder';
 UPDATE categories SET link='/category/accessories'WHERE name='Accessoarer';
 UPDATE categories SET link='/category/shoes'WHERE name='Skor'; */
+
+/* Category */
 
 UPDATE products SET category='clothes'
 WHERE slug='svart-tshirt';
@@ -122,8 +126,69 @@ WHERE slug='hoodie-navy';
 UPDATE products SET category='clothes'
 WHERE slug='hoodie-off-white';
 UPDATE products SET category='clothes'
-WHERE slug='hoodie-rose';
+WHERE slug='hoodie-white';
 
+UPDATE products SET category='shoes'
+WHERE slug='ffs-boot';
+UPDATE products SET category='shoes'
+WHERE slug='boot-black';
+UPDATE products SET category='shoes'
+WHERE slug='boot-brown';
+
+/* Subcategory */
+
+UPDATE products SET subcategory='tshirts'
+WHERE slug='svart-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='vit-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='beige-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='off-white-pink-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='grå-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='grön-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='navy-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='pink-tattoo-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='ljusbrun-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='pink-tshirt';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='knives';
+UPDATE products SET subcategory='tshirts'
+WHERE slug='est2026';
+
+UPDATE products SET subcategory='sneakers'
+WHERE slug='sneaker-black';
+UPDATE products SET subcategory='sneakers'
+WHERE slug='sneaker-original';
+UPDATE products SET subcategory='sneakers'
+WHERE slug='sneaker-white';
+
+UPDATE products SET subcategory='watches'
+WHERE slug='clock-gold';
+UPDATE products SET subcategory='watches'
+WHERE slug='clock-silver';
+
+UPDATE products SET subcategory='hoodies'
+WHERE slug='hoodie-black';
+UPDATE products SET subcategory='hoodies'
+WHERE slug='hoodie-navy';
+UPDATE products SET subcategory='hoodies'
+WHERE slug='hoodie-off-white';
+UPDATE products SET subcategory='hoodies'
+WHERE slug='hoodie-white';
+
+UPDATE products SET subcategory='boots'
+WHERE slug='ffs-boot';
+UPDATE products SET subcategory='boots'
+WHERE slug='boot-black';
+UPDATE products SET subcategory='boots'
+WHERE slug='boot-brown';
 
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -20,11 +20,11 @@ if (searchInput && searchDropdown) {
       return;
     }
 
-    searchDropdown.innerHTML = products.map(product => `
-      <a class="search-dropdown-item" href="/products/${product.slug}">
-        ${product.name}
-      </a>
-    `).join('');
+  searchDropdown.innerHTML = products.map(product => `
+    <a class="search-dropdown-item" href="/search?q=${encodeURIComponent(product.name)}">
+      ${product.name}
+    </a>
+  `).join('');
 
     searchDropdown.style.display = 'block';
   });

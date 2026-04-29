@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sökresultat</title>
+</head>
+<body>
+    <%- include('partials/layout/header') %>
+
+<link rel="stylesheet" href="/stylesheets/product-card.css" />
+
+<h2 style="margin: 1rem;">Sökresultat för "<%= q %>"</h2>
+
+<% if (products.length === 0) { %>
+  <p style="margin: 1rem;">Inga produkter hittades.</p>
+<% } else { %>
+  <div class="product-cards">
+    <% products.forEach(product => { %>
+      <div class="product-card">
+        <div class="product-img-wrapper">
+          <a href="/products/<%= product.slug %>">
+            <img class="product-img" src="<%= product.image %>" alt="<%= product.name %>" />
+          </a>
+          <form class="icon-heart favorite-form" action="/favorites/<%= product.id %>/toggle" method="POST">
+            <button type="submit" aria-label="Lägg till eller ta bort favorit">
+              <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>" src="/images/icons/suit-heart-fill.svg" alt="">
+            </button>
+          </form>
+          <span class="news">Nyhet</span>
+        </div>
+        <div class="product-info">
+          <span class="product-name"><%= product.name %></span>
+          <span class="price"><%= product.price %> SEK</span>
+          <span class="brand"><%= product.brand %></span>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<%- include('partials/layout/footer') %>
+<script src="/javascripts/favorites.js"></script>
+    
+</body>
+</html>

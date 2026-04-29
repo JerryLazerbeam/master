@@ -16,6 +16,9 @@ const adminRouter = require('./routes/admin/index');
 const categoryRoutes = require('./routes/category');
 const searchRouter = require('./routes/search');
 const favoritesRouter = require('./routes/favorites');
+const basketRouter = require('./routes/basket');
+const checkoutRouter = require('./routes/checkout');
+
 
 
 var app = express();
@@ -105,6 +108,9 @@ app.use('/products', productRoutes);
 app.use('/admin', adminRouter);
 app.use('/category', categoryRoutes);
 app.use('/search', searchRouter);
+app.use('/basket', basketRouter);
+app.use('/checkout', checkoutRouter);
+
 
 
 

@@ -15,16 +15,11 @@ router.get('/', (req, res) => {
     WHERE LOWER(name) LIKE LOWER(?)
     OR LOWER(slug) LIKE LOWER(?)
     OR LOWER(description) LIKE LOWER(?)
-    LIMIT 1
-`).all(`%${query}%`, `%${query}%`, `%${query}%`);
+  `).all(`%${query}%`, `%${query}%`, `%${query}%`);
 
-  if (!products.length) {
-    return res.redirect(`/?notFound=${encodeURIComponent(query)}`);
-  }
-
-  const product = products[0];
-  return res.redirect(`/products/${product.slug}`);
+  res.render('search', { products, q: query });
 });
+
 router.get('/suggestions', (req, res) => {
   const query = (req.query.q || '').trim();
 
@@ -43,6 +38,5 @@ router.get('/suggestions', (req, res) => {
 
   res.json(products);
 });
-
 
 module.exports = router;

@@ -7,8 +7,10 @@ CREATE TABLE products (
  image TEXT,
  brand TEXT,
  category TEXT,
- subcategory TEXT
+ subcategory TEXT,
+ created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
 INSERT INTO products (name, price, slug, description, image, brand)
 VALUES
 ('Freaky Fashion svart t-shirt', 199, 'svart-tshirt', 'Svart t-shirt', '/images/selected/FFsvart.jpg', 'Freaky Fashion'),
@@ -189,6 +191,14 @@ UPDATE products SET subcategory='boots'
 WHERE slug='boot-black';
 UPDATE products SET subcategory='boots'
 WHERE slug='boot-brown';
+
+UPDATE products
+SET created_at='2024-04-10'
+WHERE slug='svart-tshirt';
+
+UPDATE products
+SET created_at='2026-04-25'
+WHERE slug='vit-tshirt';
 
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

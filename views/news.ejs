@@ -1,74 +1,33 @@
-    <!DOCTYPE html>
-    <html lang="sv">
+<!DOCTYPE html>
+<html lang="sv">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/stylesheets/clothes.css">
-        <link rel="stylesheet" href="/stylesheets/product-card.css">
-        <title>Nyheter</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/clothes.css">
+    <link rel="stylesheet" href="/stylesheets/product-card.css">
+    <title>Nyheter</title>
+</head>
 
-    <body>
-        <%- include('partials/layout/header') %>
-            <main>
-                <h3>Nyheter</h3>
-                <div class="product-cards">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                           <a href="/products">
-                                <img class="product-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
-                            </a>
-                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
-                        </div>
+<body>
+    <%- include('partials/layout/header') %>
+        <main>
+            <h3>
+                <%= title %>
+            </h3>
 
-                        <div class="product-info">
-                            <span class="product-name">Svart T-shirt</span>
-                            <span class="price">199 SEK</span>
-                            <span class="brand">Levis</span>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <a href="/products">
-                                <img class="product-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
-                            </a>
-                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
+            <%- include('partials/components/product-card', { products: products }) %>
 
-                        </div>
+        </main>
 
-                        <div class="product-info">
-                            <span class="product-name">Svart T-shirt</span>
-                            <span class="price">199 SEK</span>
-                            <span class="brand">Levis</span>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <a href="/products">
-                                <img class="product-img" src="/images/Selected/luis-quintero-3qqiMT2LdR8-unsplash.jpg" alt="t-shirt"/>
-                            </a>
-                            <span class="icon-heart"><img src="/images/icons/suit-heart-fill.svg" onclick="toggleHeart(this)"></span>
 
-                        </div>
-
-                        <div class="product-info">
-                            <span class="product-name">Svart T-shirt</span>
-                            <span class="price">199 SEK</span>
-                            <span class="brand">Levis</span>
-                        </div>
-                    </div>
-                </div>
-            </main>
-
-        
-                        <%- include('partials/layout/footer') %>
-    </body>
-        <script>
-function toggleHeart(el) {
-  el.classList.toggle("active");
-}
+        <%- include('partials/layout/footer') %>
+</body>
+<script>
+    function toggleHeart(el) {
+        el.classList.toggle("active");
+    }
 </script>
-      
 
-    </html>
+
+</html>

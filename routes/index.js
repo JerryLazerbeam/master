@@ -26,7 +26,9 @@ router.get('/login', (req, res,) => {
   res.render('login');
 });
 router.get('/products', (req, res) => {
-  res.render('products');
+  const products = db.prepare('SELECT * FROM products').all();
+
+  res.render('products', { products });
 });
 router.get('/selected-favorites', (req, res) => {
   res.render('selected-favorites');

@@ -3,6 +3,7 @@ CREATE TABLE products (
  name TEXT NOT NULL,
  price INTEGER NOT NULL,
  slug TEXT,
+ sku TEXT,
  description TEXT,
  image TEXT,
  brand TEXT,

@@ -23,6 +23,10 @@ Built using Express.
 
 3. Select the files you want Git LFS to manage. run: `git lfs track "*.jpg"`
 
+## Install multer to use images for Admin log in
+
+1. npm install multer 
+
 ### Reset Db when working or updating
 
 1. localhost:3000/reset-db

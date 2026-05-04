@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Freaky Fashion</title>
-<link rel="icon" href="/images/icons/admin_panel_settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" />
- 
+    <link rel="icon" href="/images/icons/admin_panel_settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" />
+
     <link rel="stylesheet" href="/stylesheets/admin/products-new.css" />
 </head>
 
@@ -19,8 +19,12 @@
         <div class="admin-prod">
 
             <div class="sidebar">
-                         <a href="/admin/products"><h3>Produkter</h3></a>
-          <a href="/admin/categories"><h3>Kategorier</h3></a>
+                <a href="/admin/products">
+                    <h3>Produkter</h3>
+                </a>
+                <a href="/admin/categories">
+                    <h3>Kategorier</h3>
+                </a>
             </div>
             <div class="new-content">
 
@@ -28,57 +32,67 @@
                     <h2>Ny produkt</h2>
 
 
+                    <form action="<%= product ? '/admin/products/edit/' + product.id : '/admin/products/new' %>"
+                        method="POST" enctype="multipart/form-data">
+                        
+                        <label for="Namn">Namn</label>
+                        <input type="text" id="Namn" name="Namn" placeholder="Ange namn"
+                            value="<%= product ? product.name : '' %>" maxlength="50" required>
+
+                        <label for="brand">Märke</label>
+                        <input type="text" name="brand" placeholder="Märke" value="<%= product ? product.brand : '' %>">
+
+                        <label for="beskrivning">Beskrivning</label>
+                        <textarea id="beskrivning" name="beskrivning" placeholder="Ange beskrivning"
+                            required><%= product ? product.description : '' %></textarea>
+
+                        <label for="bild">Bild</label>
+                        <label for="bild" class="btn2">Välj fil</label>
+                        <input type="file" id="bild" name="bild" accept="image/png, image/jpeg" hidden>
+
+                        <label for="sku">SKU</label>
+                        <input type="text" id="sku" name="sku" placeholder="Ange SKU"
+                            value="<%= product ? product.sku : '' %>" pattern="^[A-Za-z]{3}[0-9]{3}$"
+                            title="Format: AAA111" required>
 
 
-                    <label for="Namn">Namn</label>
-                    <input type="text" id="Namn" name="Namn" placeholder="Ange namn" maxlength="50" required>
+                        <label for="Pris">Pris</label>
+                        <input type="number" id="Pris" name="Pris" placeholder="Ange pris"
+                            value="<%= product ? product.price : '' %>" min="0" step="0.01" required>
+
+                        <label for="publiceringsdatum">Publiceringsdatum</label>
+                        <input type="date" id="publiceringsdatum" name="publiceringsdatum" required>
 
 
-
-                    <label for="beskrivning">Beskrivning</label>
-                    <textarea id="beskrivning" name="beskrivning" placeholder="Ange beskrivning" required></textarea>
-
-                    <label for="bild">Bild</label>
-                    <label for="bild" class="btn2">Välj fil</label>
-                    <input type="file" id="bild" name="bild" accept="image/png, image/jpeg" hidden required>
-
-                    <label for="sku">SKU</label>
-                    <input type="text" id="sku" name="sku" placeholder="Ange SKU" pattern="^[A-Za-z]{3}[0-9]{3}"
-                        title="Format: AAA111" required>
-
-
-                    <label for="Pris">Pris</label>
-                    <input type="number" id="Pris" name="Pris" placeholder="Ange pris" min="0" step="0.01" required>
-
-                    <label for="publiceringsdatum">Publiceringsdatum</label>
-                    <input type="date" id="publiceringsdatum" name="publiceringsdatum" required>
-
-
-                    <h4>Kategori</h4>
-                    <div class="categories">
-                    <label>
-                        <input type="checkbox" name="kategorier" value="Vinterjackor"> Vinterjackor
-                    </label>
-                    <label>
-                        <input type="checkbox" name="kategorier" value="Pufferjackor"> Pufferjackor
-                    </label>
-                    <label>
-                        <input type="checkbox" name="kategorier" value="Kappa"> Kappa
-                    </label>
-                    <label>
-                        <input type="checkbox" name="kategorier" value="Trenchcoats"> Trenchcoats
-                    </label>
-                    <button type="submit" class="btn2">Lägg till</button>
-                    </div>
+                        <h4>Kategori</h4>
+                        <div class="categories">
+                            <select name="category">
+                                <% categories.forEach(cat=> { %>
+                                    <option value="<%= cat.link.replace('/category/', '') %>">
+                                        <%= cat.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                            <h4>Underkategori</h4>
+                            <select name="subcategory">
+                                <% subcategories.forEach(sub=> { %>
+                                    <option value="<%= sub.link.split('/').pop() %>">
+                                        <%= sub.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                            <button type="submit" class="btn2">Lägg till</button>
+                        </div>
+                    </form>
                 </div>
 
 
             </div>
         </div>
     </main>
-        <a href="/" class="back-home-floating">
-  <img src="/images/icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Till startsidan">
-</a>
+    <a href="/" class="back-home-floating">
+        <img src="/images/icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Till startsidan">
+    </a>
 </body>
 
 </html>

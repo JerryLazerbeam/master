@@ -19,7 +19,7 @@ const favoritesRouter = require('./routes/favorites');
 const basketRouter = require('./routes/basket');
 const checkoutRouter = require('./routes/checkout');
 const newsRouter = require('./routes/news');
-
+const productsRouter = require('./routes/admin/products');
 
 var app = express();
 
@@ -102,19 +102,16 @@ app.use((req, res, next) => {
 // ROUTES
 // =========================
 app.use('/favorites', favoritesRouter);
+app.use('/products', productRoutes);
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-app.use('/products', productRoutes);
+app.use('/admin/products', productsRouter);
 app.use('/admin', adminRouter);
 app.use('/category', categoryRoutes);
 app.use('/search', searchRouter);
 app.use('/basket', basketRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/news', newsRouter);
-
-
-
-
 
 
 

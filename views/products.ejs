@@ -13,93 +13,111 @@
 <body>
     <%- include('partials/layout/header') %>
 
-        <div class="products-wrapper">
-            <div class="products-img">
-                <a href="/products/<%= product.slug %>">
-                    <img class="product-img-img" src="<%= product.image %>" alt="t-shirt" />
-                </a>
-                <form class="icon-heart favorite-form" action="/favorites/<%= product.id %>/toggle" method="POST">
-                    <button type="submit" aria-label="Lägg till eller ta bort favorit">
-                        <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>"
-                            src="/images/icons/suit-heart-fill.svg" alt="">
-                    </button>
-                </form>
+        <% if (product) { %>
 
-            </div>
-            <div class="container-infovarukorg">
-                <div class="produktdetaljer">
-                    <p class="svart-tshirt">
-                        <%= product.name %>
-                    </p>
-                    <p class="levis">
-                        <%= product.brand %>
-                    </p>
-                    <p>
-                        <%= product.description %>
-                    </p>
-                    <p class="priset">
-                        <%= product.price %> SEK
-                    </p>
-                </div>
-
-                <div class="btnvarukorg">
-                    <form action="/basket/add" method="POST">
-                        <input type="hidden" name="productId" value="<%= product.id %>">
-                        <button type="submit">Lägg i varukorg</button>
+            <div class="products-wrapper">
+                <div class="products-img">
+                    <a href="/products/<%= product.slug %>">
+                        <img class="product-img-img" src="<%= product.image %>" alt="t-shirt" />
+                    </a>
+                    <form class="icon-heart favorite-form" action="/favorites/<%= product.id %>/toggle" method="POST">
+                        <button type="submit" aria-label="Lägg till eller ta bort favorit">
+                            <img class="<%= favoriteProductIds.includes(product.id) ? 'active' : '' %>"
+                                src="/images/icons/suit-heart-fill.svg" alt="">
+                        </button>
                     </form>
+
                 </div>
-
-            </div>
-        </div>
-
-        <div>
-            <h2 class="liknande">Liknande produkter</h2>
-        </div>
-        <div class="slider-wrapper swiper">
-
-            <div class="swiper-wrapper">
-
-                <% related.forEach(p=> { %>
-
-                    <div class="card-item swiper-slide">
-                        <a href="/products/<%= p.slug %>">
-                            <img src="<%= p.image %>" class="bild-slide">
-                        </a>
-
-                        <h2>
-                            <%= p.name %>
-                        </h2>
-                        <p>
-                            <%= p.brand %>
+                <div class="container-infovarukorg">
+                    <div class="produktdetaljer">
+                        <p class="svart-tshirt">
+                            <%= product.name %>
                         </p>
-
+                        <p class="levis">
+                            <%= product.brand %>
+                        </p>
+                        <p>
+                            <%= product.description %>
+                        </p>
+                        <p class="priset">
+                            <%= product.price %> SEK
+                        </p>
                     </div>
 
-                    <% }) %>
+                    <div class="btnvarukorg">
+                        <form action="/basket/add" method="POST">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                            <button type="submit">Lägg i varukorg</button>
+                        </form>
+                    </div>
 
+                </div>
             </div>
-            <!-- UTANFÖR wrappern -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-        </div>
 
-        <%- include('partials/layout/footer') %>
-            <script>
-                const dropdowns = document.querySelectorAll(".dropdown");
+            <div>
+                <h2 class="liknande">Liknande produkter</h2>
+            </div>
+            <div class="slider-wrapper swiper">
 
-                dropdowns.forEach(dropdown => {
-                    const button = dropdown.querySelector(".dropbtn");
+                <div class="swiper-wrapper">
 
-                    button.addEventListener("click", () => {
-                        dropdown.classList.toggle("active");
+                        <% related.forEach(p=> { %>
+
+                            <div class="card-item swiper-slide">
+                                <a href="/products/<%= p.slug %>">
+                                    <img src="<%= p.image %>" class="bild-slide">
+                                </a>
+
+                                <h2>
+                                    <%= p.name %>
+                                </h2>
+                                <p>
+                                    <%= p.brand %>
+                                </p>
+
+                            </div>
+
+                            <% }) %>
+
+                        
+                </div>
+                <!-- UTANFÖR wrappern -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        <% } else { %>
+           
+  <% products.forEach(product => { %>
+
+    <div class="products-wrapper">
+      <a href="/products/<%= product.slug %>">
+        <img src="<%= product.image %>" />
+      </a>
+
+      <p><%= product.name %></p>
+      <p><%= product.price %> SEK</p>
+    </div>
+
+  <% }) %>
+
+<% } %>
+            <%- include('partials/layout/footer') %>
+                <script>
+                    const dropdowns = document.querySelectorAll(".dropdown");
+
+                    dropdowns.forEach(dropdown => {
+                        const button = dropdown.querySelector(".dropbtn");
+
+                        button.addEventListener("click", () => {
+                            dropdown.classList.toggle("active");
+                        });
                     });
-                });
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-            <script src="/javascripts/products.js"></script>
-            <script src="/javascripts/favorites.js"></script>
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                <script src="/javascripts/products.js"></script>
+                <script src="/javascripts/favorites.js"></script>
 </body>
 
 </html>

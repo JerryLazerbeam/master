@@ -53,7 +53,14 @@ color: inherit;
 .main-column {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  margin-top: 1rem;
+}
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.form-wrapper label {
+  margin-top: 1rem;
 }
 .btn2 {
     display: inline-flex;
@@ -62,7 +69,7 @@ color: inherit;
     border-radius: 10px;
     width: 8rem;
     height: 2.5rem;
-    border: 2px solid black;
+    border: 2px solid #ccc;
     box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
 }
 .btn2:hover {
@@ -73,13 +80,16 @@ color: inherit;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
 }
+
 .main-column button {
   margin-top: 1rem;
   border: none;
   font-family: inherit;
   cursor: pointer;
   margin-bottom: 5rem;
+  border: 1px solid #ccc;
 }
+
 .main-column textarea {
   font-family: inherit;
   padding: 0.5rem;
@@ -96,8 +106,16 @@ color: inherit;
   flex-direction: column;
   gap: 0.25rem;
 }
-.main-column h4, h2 {
+
+.categories-field{
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+  padding-top: .2rem;
+  padding-bottom: .2rem;
+}
+.main-column h4{
   margin: 0;
+  margin-top: 1rem;
 }
 .administration-header h1 {
   color: #ffffff;
@@ -148,7 +166,7 @@ button.btn2 {
   background: none;
   padding: 0;
   font: inherit;
-  border: 2px solid black;
+  border: 2px solid #ccc;
 }
 @media (min-width: 640px) {
   .shopping {

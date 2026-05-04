@@ -32,7 +32,7 @@
                     <h2>Ny produkt</h2>
 
 
-                    <form action="<%= product ? '/admin/products/edit/' + product.id : '/admin/products/new' %>"
+                    <form class="form-wrapper" action="<%= product ? '/admin/products/edit/' + product.id : '/admin/products/new' %>"
                         method="POST" enctype="multipart/form-data">
                         
                         <label for="Namn">Namn</label>
@@ -66,7 +66,7 @@
 
                         <h4>Kategori</h4>
                         <div class="categories">
-                            <select name="category">
+                            <select class="categories-field" name="category">
                                 <% categories.forEach(cat=> { %>
                                     <option value="<%= cat.link.replace('/category/', '') %>">
                                         <%= cat.name %>
@@ -74,7 +74,7 @@
                                     <% }) %>
                             </select>
                             <h4>Underkategori</h4>
-                            <select name="subcategory">
+                            <select class="categories-field" name="subcategory">
                                 <% subcategories.forEach(sub=> { %>
                                     <option value="<%= sub.link.split('/').pop() %>">
                                         <%= sub.name %>

@@ -47,12 +47,12 @@
                             required><%= product ? product.description : '' %></textarea>
 
                         <label for="bild">Bild</label>
-                        <label for="bild" class="btn2">Välj fil</label>
+                        <label for="bild" class="btn2">Välj fil</label><span id="filnamn">Ingen fil vald</span>
                         <input type="file" id="bild" name="bild" accept="image/png, image/jpeg" hidden>
 
                         <label for="sku">SKU</label>
                         <input type="text" id="sku" name="sku" placeholder="Ange SKU"
-                            value="<%= product ? product.sku : '' %>" pattern="^[A-Za-z]{3}[0-9]{3}$"
+                            value="<%= product ? product.sku : '' %>" pattern="^[A-Z]{3}[0-9]{3}$"
                             title="Format: AAA111" required>
 
 
@@ -93,6 +93,12 @@
     <a href="/" class="back-home-floating">
         <img src="/images/icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Till startsidan">
     </a>
+
+    <script>
+    document.getElementById("bild").addEventListener("change", function() {
+        document.getElementById("filnamn").textContent = this.files[0]?.name || "Ingen fil vald";
+    });
+</script>
 </body>
 
 </html>

@@ -2,46 +2,50 @@
 <html lang="sv">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Freaky Fashion</title>
-<link rel="icon" href="/images/icons/admin_panel_settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" />
- 
-    <link rel="stylesheet" href="/stylesheets/admin/categories-new.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freaky Fashion</title>
+  <link rel="icon" href="/images/icons/admin_panel_settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" />
+  <link rel="stylesheet" href="/stylesheets/admin/categories-new.css" />
 </head>
 
 <body>
-    <header class="administration-header">
-        <h1>Administration</h1>
-    </header>
+  <header class="administration-header">
+    <h1>Administration</h1>
+  </header>
 
-    <main>
-        <div class="admin-prod">
+  <main>
+    <div class="admin-prod">
+      <div class="sidebar">
+        <a href="/admin/products"><h3>Produkter</h3></a>
+        <a href="/admin/categories"><h3>Kategorier</h3></a>
+      </div>
 
-            <div class="sidebar">
-                         <a href="/admin/products"><h3>Produkter</h3></a>
-          <a href="/admin/categories"><h3>Kategorier</h3></a>
-            </div>
-            <div class="new-content">
+      <div class="new-content">
+        <div class="main-column">
+          <h2><%= category ? 'Redigera kategori' : 'Ny kategori' %></h2>
 
-                <div class="main-column">
-                    <h2>Ny produkt</h2>
+          <form class="form-wrapper" action="<%= category ? '/admin/categories/edit/' + category.id : '/admin/categories/new' %>" method="POST">
+            <label for="Namn">Namn</label>
+            <input type="text" id="Namn" name="Namn" placeholder="Ange namn"
+              value="<%= category ? category.name : '' %>" maxlength="50" required>
 
-                    <label for="Namn">Namn</label>
-                    <input type="text" id="Namn" name="Namn" placeholder="Ange namn" maxlength="25" required>
+            <label for="link">Länk</label>
+            <input type="text" id="link" name="link" placeholder="/category/exempel"
+              value="<%= category ? category.link : '' %>">
 
-                    <label for="bild">Bild</label>
-                    <label for="bild" class="btn2">Välj fil</label>
-                    <input type="file" id="bild" name="bild" accept="image/png, image/jpeg" hidden required>
-                </div>
-
-
-            </div>
+            <button type="submit" class="btn2">
+              <%= category ? 'Spara' : 'Lägg till' %>
+            </button>
+          </form>
         </div>
-    </main>
-        <a href="/" class="back-home-floating">
-  <img src="/images/icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Till startsidan">
-</a>
+      </div>
+    </div>
+  </main>
+
+  <a href="/" class="back-home-floating">
+    <img src="/images/icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Till startsidan">
+  </a>
 </body>
 
 </html>

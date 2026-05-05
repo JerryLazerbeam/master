@@ -12,15 +12,17 @@
 <body>
     <%- include('partials/layout/header') %>
 
-        <main>
+        <% if (products.length > 0) { %>
+            <main>
 
-            <h3>
-                <%= category %>
-            </h3>
+                <h3>
+                    <%= category %>
+                </h3>
 
-            <%- include('partials/components/product-card', { products: products }) %>
+                <%- include('partials/components/product-card', { products: products }) %>
 
-        </main>
+            </main>
+        <% } %>
 
 
         <%- include('partials/layout/footer') %>

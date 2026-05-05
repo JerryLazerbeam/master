@@ -20,6 +20,7 @@ const basketRouter = require('./routes/basket');
 const checkoutRouter = require('./routes/checkout');
 const newsRouter = require('./routes/news');
 const productsRouter = require('./routes/admin/products');
+const categoriesRouter = require('./routes/admin/categories');
 
 var app = express();
 
@@ -106,6 +107,7 @@ app.use('/products', productRoutes);
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/admin/products', productsRouter);
+app.use('/admin/categories', categoriesRouter);
 app.use('/admin', adminRouter);
 app.use('/category', categoryRoutes);
 app.use('/search', searchRouter);

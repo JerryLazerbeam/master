@@ -55,6 +55,11 @@ color: inherit;
   flex-direction: column;
   gap: 1rem;
 }
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .btn2 {
     display: inline-flex;
   align-items: center;
@@ -62,7 +67,7 @@ color: inherit;
     border-radius: 10px;
     width: 8rem;
     height: 2.5rem;
-    border: 2px solid black;
+    border: 2px solid #ccc;
     box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
 }
 .btn2:hover {

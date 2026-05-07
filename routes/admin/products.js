@@ -48,8 +48,17 @@ router.post("/new", upload.single("bild"), (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-  const categories = db.prepare("SELECT * FROM categories").all();
-  const subcategories = db.prepare("SELECT * FROM subcategories").all();
+const subcategories = db.prepare(`
+  SELECT * FROM subcategories
+  WHERE name NOT IN (
+    'Alla nyheter',
+    'Senast inkommet',
+    'Alla kläder',
+    'Alla accessoarer',
+    'Alla skor'
+  )
+`).all();
+  const categories = db.prepare("SELECT * FROM categories WHERE name != 'Nyheter'").all();
 
   res.render("admin/products/new", {
     product: null,
@@ -75,9 +84,19 @@ router.get('/edit/:id', (req, res) => {
   const id = req.params.id;
 
   const product = db.prepare('SELECT * FROM products WHERE id = ?').get(id);
-  const categories = db.prepare('SELECT * FROM categories').all();
-  const subcategories = db.prepare('SELECT * FROM subcategories').all();
-
+  const categories = db
+  .prepare("SELECT * FROM categories WHERE link != '/category/nyheter'")
+  .all();
+const subcategories = db.prepare(`
+  SELECT * FROM subcategories
+  WHERE name NOT IN (
+    'Alla nyheter',
+    'Senast inkommet',
+    'Alla kläder',
+    'Alla accessoarer',
+    'Alla skor'
+  )
+`).all();
   res.render('admin/products/new', {
     product,
     categories,

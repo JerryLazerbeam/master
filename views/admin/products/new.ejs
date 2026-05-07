@@ -32,9 +32,10 @@
                     <h2>Ny produkt</h2>
 
 
-                    <form class="form-wrapper" action="<%= product ? '/admin/products/edit/' + product.id : '/admin/products/new' %>"
+                    <form class="form-wrapper"
+                        action="<%= product ? '/admin/products/edit/' + product.id : '/admin/products/new' %>"
                         method="POST" enctype="multipart/form-data">
-                        
+
                         <label for="Namn">Namn</label>
                         <input type="text" id="Namn" name="Namn" placeholder="Ange namn"
                             value="<%= product ? product.name : '' %>" maxlength="50" required>
@@ -66,7 +67,7 @@
 
                         <h4>Kategori</h4>
                         <div class="categories">
-                            <select class="categories-field" name="category">
+                            <select class="categories-field" name="category" id="category">
                                 <% categories.forEach(cat=> { %>
                                     <option value="<%= cat.link.replace('/category/', '') %>">
                                         <%= cat.name %>
@@ -74,9 +75,10 @@
                                     <% }) %>
                             </select>
                             <h4>Underkategori</h4>
-                            <select class="categories-field" name="subcategory">
+                            <select class="categories-field" name="subcategory" id="subcategory">
                                 <% subcategories.forEach(sub=> { %>
-                                    <option value="<%= sub.link.split('/').pop() %>">
+                                    <option value="<%= sub.link.split('/').pop() %>"
+                                        data-category="<%= sub.link.split('/')[2] %>">
                                         <%= sub.name %>
                                     </option>
                                     <% }) %>
@@ -95,10 +97,33 @@
     </a>
 
     <script>
-    document.getElementById("bild").addEventListener("change", function() {
-        document.getElementById("filnamn").textContent = this.files[0]?.name || "Ingen fil vald";
-    });
-</script>
+        document.getElementById("bild").addEventListener("change", function () {
+            document.getElementById("filnamn").textContent = this.files[0]?.name || "Ingen fil vald";
+            });
+            const categorySelect = document.getElementById("category");
+            const subcategorySelect = document.getElementById("subcategory");
+
+            function filterSubcategories() {
+
+                const selectedCategory = categorySelect.value;
+
+                Array.from(subcategorySelect.options).forEach(option => {
+
+                    if (option.dataset.category === selectedCategory) {
+                        option.hidden = false;
+                    } else {
+                        option.hidden = true;
+                    }
+
+                });
+
+            }
+
+            categorySelect.addEventListener("change", filterSubcategories);
+
+            filterSubcategories();
+
+    </script>
 </body>
 
 </html>
